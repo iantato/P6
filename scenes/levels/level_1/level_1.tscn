@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cb1a74p57g37t"]
+[gd_scene load_steps=19 format=4 uid="uid://cb1a74p57g37t"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_130bl"]
 [ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_bceuv"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bkqu1ptxednph" path="res://assets/particles/Leaves.png" id="7_nub7o"]
 [ext_resource type="PackedScene" uid="uid://b0yu6jtf5d28k" path="res://scenes/ui/inventory/scenes/inventory_ui.tscn" id="9_gngkw"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/scripts/killzone.gd" id="13_pb00n"]
-[ext_resource type="PackedScene" uid="uid://570o7ljhdp2x" path="res://scenes/blocks/boulder/boulder.tscn" id="14_yitml"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fl1j"]
 size = Vector2(89, 12)
@@ -141,12 +140,6 @@ script = ExtResource("13_pb00n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(570, 326)
 shape = SubResource("RectangleShape2D_8x5sr")
-
-[node name="RigidBody2D2" parent="." groups=["punchable"] instance=ExtResource("14_yitml")]
-position = Vector2(172, 122)
-
-[node name="RigidBody2D" parent="." groups=["punchable"] instance=ExtResource("14_yitml")]
-position = Vector2(222, 120)
 
 [connection signal="body_entered" from="Ground/Bridge Collision" to="Ground/Bridge Collision" method="_explode_bridge"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_killzone_entered"]

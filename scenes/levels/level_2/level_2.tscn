@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cpo8st6o6xr7u"]
+[gd_scene load_steps=19 format=4 uid="uid://cpo8st6o6xr7u"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_2/scripts/level_2.gd" id="1_3xo7v"]
 [ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_qijtq"]
@@ -6,9 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="3_gif5w"]
 [ext_resource type="AudioStream" uid="uid://ccsx0mgpq1teo" path="res://audio/forest.ogg" id="4_e0u78"]
 [ext_resource type="TileSet" uid="uid://dw0bf48df68rs" path="res://data/tileset/clutter.tres" id="4_ipwqo"]
+[ext_resource type="Texture2D" uid="uid://tembicywx6wn" path="res://assets/particles/Gravity Particle 2 (Opacity).png" id="5_rjg6c"]
 [ext_resource type="Texture2D" uid="uid://bkqu1ptxednph" path="res://assets/particles/Leaves.png" id="6_7q63g"]
 [ext_resource type="Texture2D" uid="uid://be1chq34fofde" path="res://assets/particles/Gravity Particle 1.png" id="7_vc63t"]
 [ext_resource type="Texture2D" uid="uid://bjkhdfjjrxsn" path="res://assets/particles/Gravity Particle 3.png" id="8_ogt78"]
+[ext_resource type="PackedScene" uid="uid://bpfed70ay6qvw" path="res://scenes/ui/hotbar/scenes/toolbelt.tscn" id="8_y4alm"]
+[ext_resource type="PackedScene" uid="uid://b0yu6jtf5d28k" path="res://scenes/ui/inventory/scenes/inventory_ui.tscn" id="9_orfba"]
 
 [sub_resource type="Gradient" id="Gradient_ml3jk"]
 offsets = PackedFloat32Array(0.236559, 0.802867)
@@ -19,6 +22,8 @@ gradient = SubResource("Gradient_ml3jk")
 fill = 1
 fill_from = Vector2(0.470085, 0.474359)
 fill_to = Vector2(0.217949, 0.790598)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aq8iu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ww45s"]
 
@@ -61,11 +66,17 @@ tile_set = ExtResource("1_qijtq")
 position = Vector2(216, 146)
 texture = SubResource("GradientTexture2D_6can8")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Ground"]
+position = Vector2(218, 145)
+process_material = SubResource("ShaderMaterial_aq8iu")
+texture = ExtResource("5_rjg6c")
+
 [node name="Clutter" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAnAO7/AQAAAAAAAAArAO7/BAAAAAIAAAAqAO7/BAAAAAEAAAAmAPD/BAAAAAEAAAAGAAgABAAAAAIAAAAKAAgABAAAAAEAAAAHAAgABAAAAAAAAAABAAgABAAAAAEAAAAOAAgAAgAAAAAAAAATAPr/AQAAAAAAAAAZAPr/AgAAAAAAAAAUAPr/BAAAAAAAAAAXAPn/BAAAAAIAAAA5AAEABAAAAAIAAAA+AAEABAAAAAAAAAA0AAUABAAAAAEAAAAyAAUABAAAAAAAAAA6AAEABAAAAAAAAAA7AAEAAwAAAAAAAAA8AAEAAwAFAAAAAAAxAAUAAQAAAAAAAAA=")
 tile_set = ExtResource("4_ipwqo")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.05)
@@ -76,6 +87,16 @@ motion_mirroring = Vector2(560, 0)
 position = Vector2(0, -18)
 texture = ExtResource("2_p7qgv")
 centered = false
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Hotbar" parent="GUI" instance=ExtResource("8_y4alm")]
+offset_left = -71.0
+offset_right = -7.0
+
+[node name="InventoryUI" parent="GUI" instance=ExtResource("9_orfba")]
+visible = false
+z_index = 10
 
 [node name="Leaves" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_ww45s")

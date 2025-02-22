@@ -53,3 +53,4 @@ func _input(event: InputEvent) -> void:
 		
 	if Input.is_action_just_pressed("interact") and Globals.player.inside:
 		open_inventory(Globals.player.inventory.items, true)
+		

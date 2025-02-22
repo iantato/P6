@@ -42,7 +42,7 @@ position = Vector2(5.5, -9)
 shape = SubResource("RectangleShape2D_jk8r4")
 
 [node name="Button" type="AnimatedSprite2D" parent="."]
-position = Vector2(8, -12)
+position = Vector2(8, -13)
 scale = Vector2(0.640625, 0.640625)
 sprite_frames = SubResource("SpriteFrames_mvyyj")
 

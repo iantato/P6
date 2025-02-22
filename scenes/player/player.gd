@@ -114,6 +114,10 @@ func get_tile_friction() -> float:
 
 	current_speed = BASE_SPEED
 	return default_friction
+	
+func reset_to_checkpoint():
+	global_position = checkpoint_position
+	velocity = Vector2.ZERO
 
 func toggle_movement():
 	movement_enabled = not movement_enabled

@@ -8,6 +8,7 @@ class_name Player
 @export var default_friction := 600.0  # Renamed from "friction" to "default_friction"
 
 var checkpoint_position: Vector2 = Vector2.ZERO
+var inside: bool
 
 var BASE_GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Friction variables
@@ -87,7 +88,8 @@ func handle_normal_movement(delta: float):
 		new_animation = "run"
 	if velocity.y != 0 and not is_on_floor():
 		new_animation = "jump"
-	if Input.is_action_pressed("use_item"):
+	if Input.is_action_pressed("use_item") and $Hotbar.hotbar[$Hotbar.selected_slot]:
+		toggle_movement()
 		new_animation = "cast_1"
 
 	if animated_sprite.animation != new_animation:
@@ -118,7 +120,3 @@ func toggle_movement():
 	if not movement_enabled:
 		velocity.x = 0
 		velocity.y = 0
-
-
-func _on_player_fell_off():
-	get_tree().reload_current_scene()  # Restart the level

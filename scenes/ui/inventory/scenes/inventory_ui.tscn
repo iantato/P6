@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b0yu6jtf5d28k"]
+[gd_scene load_steps=38 format=3 uid="uid://b0yu6jtf5d28k"]
 
 [ext_resource type="Script" path="res://scenes/ui/inventory/scripts/inventory_ui.gd" id="1_cn0py"]
 [ext_resource type="Texture2D" uid="uid://pxavjkudtpwn" path="res://scenes/ui/inventory/textures/Book (Red Selected).png" id="2_y2ici"]
@@ -7,8 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://dfb7axsbwxarj" path="res://scenes/items/gravity/scenes/gravity_inventory.tscn" id="5_qx6wk"]
 [ext_resource type="Texture2D" uid="uid://bh17lx6kjnhmw" path="res://scenes/ui/inventory/textures/Book (Green Selected).png" id="6_pv5jq"]
 [ext_resource type="PackedScene" uid="uid://dlyj38hc5cgbq" path="res://scenes/items/intertia/inertia_inventory.tscn" id="7_vtl15"]
-[ext_resource type="PackedScene" uid="uid://bk0f2cmu7urkg" path="res://scenes/items/projectile/projectile_inventory.tscn" id="8_6bph1"]
+[ext_resource type="PackedScene" path="res://scenes/items/projectile/projectile_inventory.tscn" id="8_6bph1"]
 [ext_resource type="PackedScene" uid="uid://bfcq6hjjqllq5" path="res://scenes/ui/inventory/scenes/selector.tscn" id="9_uycdx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nku33"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tom5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sib0t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glmux"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jbauc"]
 atlas = ExtResource("2_y2ici")
@@ -197,6 +205,9 @@ offset_left = 74.0
 offset_top = 161.0
 offset_right = 85.0
 offset_bottom = 173.0
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nku33")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tom5p")
 
 [node name="GreenButton" type="Button" parent="."]
 layout_mode = 0
@@ -204,6 +215,9 @@ offset_left = 92.0
 offset_top = 161.0
 offset_right = 103.0
 offset_bottom = 173.0
+theme_type_variation = &"FlatButton"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sib0t")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_glmux")
 
 [node name="RedSelected" type="AnimatedSprite2D" parent="."]
 position = Vector2(160, 90)
@@ -214,18 +228,21 @@ offset_left = -85.0
 offset_top = -47.0
 offset_right = -22.0
 offset_bottom = -16.0
+theme_type_variation = &"FlatButton"
 
 [node name="Friction" parent="RedSelected" instance=ExtResource("3_7ak0v")]
 offset_left = -86.0
 offset_top = -9.0
 offset_right = -23.0
 offset_bottom = 22.0
+theme_type_variation = &"FlatButton"
 
 [node name="Gravity" parent="RedSelected" instance=ExtResource("5_qx6wk")]
 offset_left = -85.0
 offset_top = 30.0
 offset_right = -22.0
 offset_bottom = 61.0
+theme_type_variation = &"FlatButton"
 
 [node name="GreenSelected" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -238,12 +255,14 @@ offset_left = -85.0
 offset_top = -47.0
 offset_right = -22.0
 offset_bottom = -16.0
+theme_type_variation = &"FlatButton"
 
 [node name="Speed" parent="GreenSelected" instance=ExtResource("7_vtl15")]
 offset_left = -85.0
 offset_top = -9.0
 offset_right = -22.0
 offset_bottom = 22.0
+theme_type_variation = &"FlatButton"
 
 [node name="Selector" parent="." instance=ExtResource("9_uycdx")]
 visible = false

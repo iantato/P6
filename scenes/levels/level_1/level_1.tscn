@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://cb1a74p57g37t"]
+[gd_scene load_steps=19 format=4 uid="uid://cb1a74p57g37t"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_130bl"]
 [ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_bceuv"]
 [ext_resource type="TileSet" uid="uid://dw0bf48df68rs" path="res://data/tileset/clutter.tres" id="2_clxqg"]
 [ext_resource type="Texture2D" uid="uid://bxolxce0owrpv" path="res://assets/background/Overworld (Temp).png" id="2_lne54"]
+[ext_resource type="PackedScene" uid="uid://c2oe5gloan8g3" path="res://scenes/blocks/codex/codex_block.tscn" id="3_g15pt"]
 [ext_resource type="PackedScene" uid="uid://bpfed70ay6qvw" path="res://scenes/ui/hotbar/scenes/toolbelt.tscn" id="3_qi5pa"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/scripts/bridge.gd" id="5_32dw5"]
 [ext_resource type="AudioStream" uid="uid://ccsx0mgpq1teo" path="res://audio/forest.ogg" id="6_1uv33"]
@@ -34,6 +35,9 @@ point_count = 2
 size = Vector2(1136.5, 46)
 
 [node name="Level 1" type="Node2D"]
+
+[node name="CodexBlock" parent="." instance=ExtResource("3_g15pt")]
+position = Vector2(508, 169)
 
 [node name="Player" parent="." instance=ExtResource("1_130bl")]
 position = Vector2(78, 171)
@@ -92,6 +96,7 @@ volume_db = -10.0
 max_polyphony = 6
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.05)

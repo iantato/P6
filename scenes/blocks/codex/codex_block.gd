@@ -5,22 +5,25 @@ var player_inside: bool = false
 var player = null
 
 func _ready() -> void:
-	label.visible = false
+	$Button.visible = false
+	$Button.stop()
 
 func _process(delta):
-	if player_inside:
-		if Input.is_action_just_pressed("interact"):
-			player.inventory_ui.open_inventory(player.inventory.items, true)
-			player.toggle_movement()
+	if player_inside and Input.is_action_just_pressed("interact"):
+		player.toggle_movement()
 
 func _on_area_2d_body_entered(body:Node2D) -> void:
 	if body.name == "Player":
-		label.visible = true
+		$Button.visible = true
 		player = body
 		player_inside = true
+		$Button.play("default")
+		player.inside = player_inside
 
 func _on_area_2d_body_exited(body:Node2D) -> void:
 	if body.name == "Player":
-		label.visible = false
+		$Button.visible = false
+		$Button.stop()
 		player_inside = false
+		player.inside = player_inside
 		player = null

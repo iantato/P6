@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bjjyur6dl1yut"]
+[gd_scene load_steps=35 format=3 uid="uid://bjjyur6dl1yut"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_ttu8u"]
 [ext_resource type="Texture2D" uid="uid://dbgmb28l58x5m" path="res://scenes/player/textures/Character Idle.png" id="2_6rigs"]
@@ -10,8 +10,6 @@
 [ext_resource type="Script" path="res://scenes/player/hotbar.gd" id="7_35vjl"]
 [ext_resource type="Script" path="res://scenes/items/base_items/grimoire.gd" id="8_wm7vt"]
 [ext_resource type="Resource" uid="uid://03fla2su4dl6" path="res://scenes/items/speed/speed_grimoire.tres" id="9_f1gb3"]
-[ext_resource type="Resource" uid="uid://7vi587uw8xa6" path="res://scenes/items/gravity/data/gravity_grimoire.tres" id="10_lj7ti"]
-[ext_resource type="Resource" uid="uid://blq1t10wr8d2i" path="res://scenes/items/projectile/projectile_grimoire.tres" id="11_7o13t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jcqb"]
 atlas = ExtResource("3_ga2k2")
@@ -220,4 +218,4 @@ script = ExtResource("7_35vjl")
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource("6_hb0ve")
-items = Array[ExtResource("8_wm7vt")]([ExtResource("10_lj7ti"), ExtResource("9_f1gb3"), ExtResource("11_7o13t")])
+items = Array[ExtResource("8_wm7vt")]([ExtResource("9_f1gb3")])

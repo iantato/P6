@@ -1,4 +1,5 @@
 extends Grimoire
+class_name GravityGrimoire
 
 @export var gravity_multiplier: float = 20
 

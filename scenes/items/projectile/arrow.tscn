@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bykko5yfvc6d4"]
+
+[ext_resource type="Script" path="res://scenes/items/projectile/arrow.gd" id="1_mobps"]
+
+[node name="Line2D" type="Line2D"]
+points = PackedVector2Array(0, 0, 5, 0)
+width = 4.0
+script = ExtResource("1_mobps")
+max_scale = 20.0

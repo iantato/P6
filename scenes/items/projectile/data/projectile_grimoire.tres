@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ProjectileGrimoire" load_steps=6 format=3 uid="uid://c34ykn1aggait"]
+
+[ext_resource type="PackedScene" uid="uid://bykko5yfvc6d4" path="res://scenes/items/projectile/arrow.tscn" id="1_ebsn3"]
+[ext_resource type="Script" path="res://scenes/items/projectile/projectile_grimoire.gd" id="1_wl15x"]
+[ext_resource type="Texture2D" uid="uid://dbua2ey38rgm1" path="res://scenes/items/projectile/textures/Projectile.png" id="2_3l34a"]
+[ext_resource type="PackedScene" uid="uid://c16wcuo841sf4" path="res://scenes/items/projectile/scenes/projectile.tscn" id="3_tl1kh"]
+[ext_resource type="PackedScene" uid="uid://ct71r83kpoyme" path="res://scenes/items/projectile/scenes/projectile_grimoire.tscn" id="4_rn3em"]
+
+[resource]
+script = ExtResource("1_wl15x")
+projectile_scene = ExtResource("3_tl1kh")
+arrow_scene = ExtResource("1_ebsn3")
+projectile_speed = 200.0
+item_name = "Projectile Grimoire"
+use_type = 1
+type = 3
+toggleable = false
+activate_on_equip = true
+hotbar_icon = ExtResource("2_3l34a")
+scene = ExtResource("4_rn3em")

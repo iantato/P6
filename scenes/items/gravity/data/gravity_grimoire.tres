@@ -1,15 +1,12 @@
-[gd_resource type="Resource" script_class="GravityGrimoire" load_steps=4 format=3 uid="uid://7vi587uw8xa6"]
+[gd_resource type="Resource" script_class="GravityGrimoire" load_steps=2 format=3 uid="uid://dqxnu7xslfahg"]
 
 [ext_resource type="Script" path="res://scenes/items/gravity/scripts/gravity_grimoire.gd" id="1_7urdn"]
-[ext_resource type="PackedScene" uid="uid://demdpp72vuaj3" path="res://scenes/items/gravity/scenes/gravity_grimoire.tscn" id="1_hjv03"]
-[ext_resource type="Texture2D" uid="uid://d2ymy8sam1sr7" path="res://scenes/items/gravity/textures/Gravity.png" id="1_lltix"]
 
 [resource]
 script = ExtResource("1_7urdn")
-gravity_multiplier = 600.0
-item_name = "Gravity Grimoire"
-use_type = 1
-type = 2
-toggleable = true
-hotbar_icon = ExtResource("1_lltix")
-scene = ExtResource("1_hjv03")
+gravity_multiplier = 20.0
+item_name = "Default Grimoire Name"
+use_type = 0
+type = 0
+toggleable = false
+proccessable = false

@@ -48,4 +48,4 @@ func _on_green_button_pressed() -> void:
 
 func _input(event: InputEvent) -> void:
     if Input.is_action_just_pressed("inventory"):
-        open_inventory(Globals.player.inventory.items, false)
+        open_inventory(Globals.player.inventory.items, true)

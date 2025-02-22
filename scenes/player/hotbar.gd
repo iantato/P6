@@ -36,15 +36,14 @@ func _input(event: InputEvent) -> void:
 	for key in hotbar_keys.keys():
 		if event.is_action_released(key):
 			var new_slot = hotbar_keys[key]
-			print(new_slot)
 			if selected_slot != new_slot:
 				hotbar[selected_slot].clear(Globals.player)
 				if item_scene != null:
 					Globals.player.remove_child(item_scene)
 				select_slot(new_slot)
-				item_scene = hotbar[selected_slot].scene.instantiate()
-				print(selected_slot)
-				Globals.player.add_child(item_scene)
+        item_scene = hotbar[selected_slot].scene.instantiate()
+        if item_scene:
+				  Globals.player.add_child(item_scene)
 				item_scene.play_sequence()
 
 	

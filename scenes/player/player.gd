@@ -22,10 +22,6 @@ var current_speed := BASE_SPEED
 var gravity = BASE_GRAVITY
 var sprite_direction = 1
 
-# Custom gravity variables
-var custom_gravity: float = gravity  # Default to the global gravity
-var is_using_custom_gravity: bool = false  # Track if custom gravity is active
-
 # Floating state variables
 var is_floating: bool = false  # Track if the player is in floating mode
 var float_amplitude: float = 500.0  # How far the player floats up and down

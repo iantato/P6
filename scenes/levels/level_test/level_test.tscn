@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=4 uid="uid://d2q4bu3m81goe"]
+
+[ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_y1tgv"]
+[ext_resource type="PackedScene" uid="uid://bo3y56r6lhd0r" path="res://scenes/blocks/moving_platform/moving_platform.tscn" id="2_ungdn"]
+[ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="3_y0wvg"]
+
+[node name="LevelTest" type="Node2D"]
+position = Vector2(205, 163)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+rotation = -0.000991319
+tile_map_data = PackedByteArray("AAD8/wAAAAAEAAAAAAD9/wAAAAACAAAAAAD+/wAAAAAEAAAAAAD//wAAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAAEAAAAAAACAAAAAAACAAAAAAADAAAAAAAEAAAAAAAEAAAAAAACAAAAAAAFAAAAAAADAAAAAAAGAAAAAAACAAAAAAAJAAAAAAADAAAAAAAIAAAAAAAEAAAAAAAHAAAAAAACAAAAAAD7/wAAAAACAAAAAAD6/wAAAAADAAAAAAD5/wAAAAADAAAAAAD4/wAAAAADAAAAAAAKAAAAAAAEAAAAAAALAAAAAAAEAAAAAAAMAAAAAAADAAAAAAANAAAAAAACAAAAAAAOAAAAAAACAAAAAAD3/wAAAAAEAAAAAAD2/wAAAAACAAAAAAD1/wAAAAACAAAAAAD0/wAAAAADAAAAAADz/wAAAAAEAAAAAAAQAAAAAAACAAAAAAAPAAAAAAAEAAAAAADy/wAAAAADAAAAAADx/wAAAAADAAAAAADw/wAAAAACAAAAAADv/wAAAAACAAAAAADu/wAAAAADAAAAAADt/wAAAAADAAAAAADs/wAAAAADAAAAAADr/wAAAAACAAAAAADq/wAAAAAEAAAAAAD7////AAAEAAAAAAD6////AAACAAAAAAD6//7/AAACAAAAAAD5//7/AAADAAAAAAD4//7/AAAEAAAAAAD4//3/AAADAAAAAAA=")
+tile_set = ExtResource("1_y1tgv")
+
+[node name="MovingPlatform" parent="." instance=ExtResource("2_ungdn")]
+position = Vector2(-136, -40)
+
+[node name="Player" parent="." instance=ExtResource("3_y0wvg")]
+position = Vector2(-44, -40)

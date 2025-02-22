@@ -47,6 +47,10 @@ size = Vector2(1136.5, 46)
 
 [node name="Player" parent="." instance=ExtResource("1_130bl")]
 position = Vector2(78, 171)
+BASE_SPEED = null
+JUMP_VELOCITY = null
+acceleration = null
+default_friction = null
 
 [node name="Background Music" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-30, -176)

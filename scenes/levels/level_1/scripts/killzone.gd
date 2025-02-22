@@ -1,4 +1,5 @@
 extends Node
 
-func _on_killzone_entered(body: Player) -> void:
-	body.reset_to_checkpoint()
+func _on_killzone_entered(body: Node2D) -> void:
+	if body == Player:
+		body.reset_to_checkpoint()

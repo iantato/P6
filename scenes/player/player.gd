@@ -20,6 +20,7 @@ const AREA_OFFSET_X := 10.0
 var movement_enabled = true
 var current_speed := BASE_SPEED
 var gravity = BASE_GRAVITY
+var on_gravity_pad : bool = false
 var sprite_direction = 1
 
 # Floating state variables
@@ -40,6 +41,7 @@ func _ready() -> void:
 		queue_free()  # Delete this duplicate instance if another already exists
 		return
 	checkpoint_position = global_position
+	print(checkpoint_position)
 	Globals.player = self
 	tilemap = get_parent().get_node("Ground TileMap")
 	add_child(inventory)

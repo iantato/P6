@@ -13,5 +13,10 @@ func _process(delta: float) -> void:
 
 func _on_gravity_pad(body: Node2D) -> void:
 	if body.name == "Player":
-		print("test")
 		Globals.player.gravity = Globals.player.BASE_GRAVITY * 0.2
+		Globals.player.on_gravity_pad = true
+
+
+func _exited_gravity_pad(body: Node2D) -> void:
+	if body.name == "Player":
+		Globals.player.on_gravity_pad = false

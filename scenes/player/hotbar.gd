@@ -33,10 +33,12 @@ func _input(event: InputEvent) -> void:
 		hotbar[selected_slot].switch_direction()
 
 	for key in hotbar_keys.keys():
+		
 		if event.is_action_released(key):
 			var new_slot = hotbar_keys[key]
 			if selected_slot != new_slot and hotbar[selected_slot] != null:
 				hotbar[selected_slot].clear(Globals.player)
+				
 				if item_scene != null:
 					Globals.player.remove_child(item_scene)
 					select_slot(new_slot)
@@ -45,7 +47,6 @@ func _input(event: InputEvent) -> void:
 					Globals.player.add_child(item_scene)
 					item_scene.play_sequence()
 
-	
 func _process(delta: float) -> void:
 	if is_holding:
 		use_time += delta

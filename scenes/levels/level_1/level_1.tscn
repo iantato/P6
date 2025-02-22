@@ -1,30 +1,20 @@
-[gd_scene load_steps=20 format=4 uid="uid://cb1a74p57g37t"]
+[gd_scene load_steps=18 format=4 uid="uid://cb1a74p57g37t"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_130bl"]
 [ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_bceuv"]
 [ext_resource type="TileSet" uid="uid://dw0bf48df68rs" path="res://data/tileset/clutter.tres" id="2_clxqg"]
 [ext_resource type="Texture2D" uid="uid://bxolxce0owrpv" path="res://assets/background/Overworld (Temp).png" id="2_lne54"]
 [ext_resource type="PackedScene" uid="uid://bpfed70ay6qvw" path="res://scenes/ui/hotbar/scenes/toolbelt.tscn" id="3_qi5pa"]
-[ext_resource type="Texture2D" uid="uid://cqh3182b01k8c" path="res://assets/tiles/Codex.png" id="4_hs6ky"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/scripts/bridge.gd" id="5_32dw5"]
 [ext_resource type="AudioStream" uid="uid://ccsx0mgpq1teo" path="res://audio/forest.ogg" id="6_1uv33"]
 [ext_resource type="Texture2D" uid="uid://cw4kiiay08ah0" path="res://assets/particles/Bridge Explosion.png" id="6_25qmu"]
 [ext_resource type="AudioStream" uid="uid://24xd5rkgkop0" path="res://audio/poof.mp3" id="7_4rere"]
 [ext_resource type="Texture2D" uid="uid://bkqu1ptxednph" path="res://assets/particles/Leaves.png" id="7_nub7o"]
 [ext_resource type="PackedScene" uid="uid://b0yu6jtf5d28k" path="res://scenes/ui/inventory/scenes/inventory_ui.tscn" id="9_gngkw"]
+[ext_resource type="Script" path="res://scenes/levels/level_1/scripts/killzone.gd" id="13_pb00n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fl1j"]
 size = Vector2(89, 12)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_glh7j"]
-texture = ExtResource("4_hs6ky")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_2sfxq"]
-sources/0 = SubResource("TileSetAtlasSource_glh7j")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j8hjn"]
 
@@ -47,10 +37,6 @@ size = Vector2(1136.5, 46)
 
 [node name="Player" parent="." instance=ExtResource("1_130bl")]
 position = Vector2(78, 171)
-BASE_SPEED = null
-JUMP_VELOCITY = null
-acceleration = null
-default_friction = null
 
 [node name="Background Music" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-30, -176)
@@ -105,10 +91,6 @@ stream = ExtResource("7_4rere")
 volume_db = -10.0
 max_polyphony = 6
 
-[node name="Codex" type="TileMapLayer" parent="."]
-z_index = -1
-tile_set = SubResource("TileSet_2sfxq")
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -149,9 +131,11 @@ angle_curve = SubResource("Curve_e3wac")
 scale_amount_min = 0.9
 
 [node name="KillZone" type="Area2D" parent="."]
+script = ExtResource("13_pb00n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(567.75, 316)
 shape = SubResource("RectangleShape2D_8x5sr")
 
 [connection signal="body_entered" from="Ground/Bridge Collision" to="Ground/Bridge Collision" method="_explode_bridge"]
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_killzone_entered"]

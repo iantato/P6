@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://br7e8qtku13ys"
-path="res://.godot/imported/Opened Book - Locked.png-40f33523a0b375d3b4ffc7fe27e349e7.ctex"
+path="res://.godot/imported/Opened Book - Locked.png-25b5379aa2bcf403103433991517634c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/items/projectile/Opened Book - Locked.png"
-dest_files=["res://.godot/imported/Opened Book - Locked.png-40f33523a0b375d3b4ffc7fe27e349e7.ctex"]
+source_file="res://scenes/items/projectile/textures/Opened Book - Locked.png"
+dest_files=["res://.godot/imported/Opened Book - Locked.png-25b5379aa2bcf403103433991517634c.ctex"]
 
 [params]
 

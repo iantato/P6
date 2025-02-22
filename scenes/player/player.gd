@@ -69,7 +69,7 @@ func handle_normal_movement(delta: float):
 	if direction != 0:
 		velocity.x = move_toward(velocity.x, target_velocity, acceleration * delta)
 		animated_sprite.flip_h = direction < 0  # Now works properly
-		sprite_direction = direction
+		sprite_direction = direction > 0
 		area.position.x = AREA_OFFSET_X * direction
 		var grimoires = get_tree().get_nodes_in_group("grimoire")
 		for grimoire in grimoires:

@@ -32,6 +32,11 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
+[global_group]
+
+grimoire=""
+punchable=""
+
 [input]
 
 ui_left={

@@ -35,14 +35,16 @@ func _input(event: InputEvent) -> void:
 	for key in hotbar_keys.keys():
 		if event.is_action_released(key):
 			var new_slot = hotbar_keys[key]
-			if selected_slot != new_slot and hotbar[selected_slot] != null:
+			if selected_slot != new_slot and hotbar[new_slot] != null:
 				hotbar[selected_slot].clear(Globals.player)
+				if hotbar[new_slot] != null and hotbar[new_slot].activate_on_equip:
+					hotbar[new_slot].activate(Globals.player)
 				if item_scene != null:
 					Globals.player.remove_child(item_scene)
-					select_slot(new_slot)
-					item_scene = hotbar[selected_slot].scene.instantiate()
-					Globals.player.add_child(item_scene)
-					item_scene.play_sequence()
+				select_slot(new_slot)
+				item_scene = hotbar[selected_slot].scene.instantiate()
+				Globals.player.add_child(item_scene)
+				item_scene.play_sequence()
 
 func _process(delta: float) -> void:
 	if is_holding:

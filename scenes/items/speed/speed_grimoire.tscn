@@ -93,7 +93,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="SpeedGrimoire" type="Node2D"]
+[node name="SpeedGrimoire" type="Node2D" groups=["grimoire"]]
 script = ExtResource("1_dxrqt")
 
 [node name="Grimoire" type="AnimatedSprite2D" parent="."]

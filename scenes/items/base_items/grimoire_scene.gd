@@ -11,5 +11,6 @@ func play_sequence():
   await grimoire.animation_finished
 
 func flip(direction):
+  print("test")
   grimoire.flip_h = direction < 0
   grimoire.rotation_degrees = (rot * (-1)) if direction == -1 else rot

@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dfb7axsbwxarj" path="res://scenes/items/gravity/scenes/gravity_inventory.tscn" id="5_qx6wk"]
 [ext_resource type="Texture2D" uid="uid://bh17lx6kjnhmw" path="res://scenes/ui/inventory/textures/Book (Green Selected).png" id="6_pv5jq"]
 [ext_resource type="PackedScene" uid="uid://dlyj38hc5cgbq" path="res://scenes/items/intertia/inertia_inventory.tscn" id="7_vtl15"]
-[ext_resource type="PackedScene" path="res://scenes/items/projectile/projectile_inventory.tscn" id="8_6bph1"]
+[ext_resource type="PackedScene" uid="uid://bk0f2cmu7urkg" path="res://scenes/items/projectile/scenes/projectile_inventory.tscn" id="8_6bph1"]
 [ext_resource type="PackedScene" uid="uid://bfcq6hjjqllq5" path="res://scenes/ui/inventory/scenes/selector.tscn" id="9_uycdx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nku33"]

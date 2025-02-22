@@ -25,7 +25,6 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("use_item"):
-		print(hotbar[selected_slot])
 		handle_press()
 	elif event.is_action_released("use_item"):
 		handle_release()
@@ -36,15 +35,15 @@ func _input(event: InputEvent) -> void:
 	for key in hotbar_keys.keys():
 		if event.is_action_released(key):
 			var new_slot = hotbar_keys[key]
-			if selected_slot != new_slot:
+			if selected_slot != new_slot and hotbar[selected_slot] != null:
 				hotbar[selected_slot].clear(Globals.player)
 				if item_scene != null:
 					Globals.player.remove_child(item_scene)
-				select_slot(new_slot)
-        item_scene = hotbar[selected_slot].scene.instantiate()
-        if item_scene:
-				  Globals.player.add_child(item_scene)
-				item_scene.play_sequence()
+					select_slot(new_slot)
+					item_scene = hotbar[selected_slot].scene.instantiate()
+					print(selected_slot)
+					Globals.player.add_child(item_scene)
+					item_scene.play_sequence()
 
 	
 func _process(delta: float) -> void:
@@ -52,6 +51,8 @@ func _process(delta: float) -> void:
 		use_time += delta
 
 func handle_press():
+	if hotbar[selected_slot] == null:
+		return
 	if hotbar[selected_slot].use_type == Grimoire.UseType.HOLD:
 		use_time = 0
 		is_holding = true
@@ -59,6 +60,8 @@ func handle_press():
 		pass
 
 func handle_release():
+	if hotbar[selected_slot] == null:
+		return
 	if hotbar[selected_slot].use_type == Grimoire.UseType.HOLD:
 		is_holding = false
 		hotbar[selected_slot].use(Globals.player, use_time)
@@ -75,10 +78,6 @@ func equip_item(item: Grimoire, slot: int):
 	elif hotbar[slot] != null:
 		emit_signal("item_replaced", hotbar[slot])
 	hotbar[slot] = item
-
-
-func unequip_item(index: int = 0) -> Grimoire:
-	return hotbar.pop_at(index)
 
 func select_slot(slot: int):
 	if slot > max_size - 1:

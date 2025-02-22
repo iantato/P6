@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="ProjectileGrimoire" load_steps=5 format=3 uid="uid://blq1t10wr8d2i"]
 
 [ext_resource type="Script" path="res://scenes/items/projectile/projectile_grimoire.gd" id="1_6l6wp"]
-[ext_resource type="PackedScene" uid="uid://c16wcuo841sf4" path="res://scenes/items/projectile/scenes/projectile.tscn" id="1_6x0fn"]
+[ext_resource type="PackedScene" uid="uid://c16wcuo841sf4" path="res://scenes/items/projectile/projectile.tscn" id="1_6x0fn"]
 [ext_resource type="Texture2D" uid="uid://dbua2ey38rgm1" path="res://scenes/items/projectile/textures/Projectile.png" id="1_bp4gm"]
-[ext_resource type="PackedScene" uid="uid://ct71r83kpoyme" path="res://scenes/items/projectile/scenes/projectile_grimoire.tscn" id="2_cp5i1"]
+[ext_resource type="PackedScene" uid="uid://ct71r83kpoyme" path="res://scenes/items/projectile/projectile_grimoire.tscn" id="2_cp5i1"]
 
 [resource]
 script = ExtResource("1_6l6wp")

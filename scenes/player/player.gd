@@ -1,0 +1,184 @@
+extends CharacterBody2D
+class_name Player
+
+# Exported variables (adjustable in inspector)
+@export var BASE_SPEED := 100.0
+@export var JUMP_VELOCITY := -300.0
+@export var acceleration := 800.0
+@export var default_friction := 600.0  # Renamed from "friction" to "default_friction"
+
+var BASE_GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
+# Friction variables
+var current_friction: float = default_friction  # Current friction value
+var is_on_special_surface: bool = false  # Track if the player is on a special surface
+
+const AREA_OFFSET_X := 10.0
+
+var movement_enabled = true
+var current_speed := BASE_SPEED
+var gravity = BASE_GRAVITY
+var sprite_direction = 1
+
+# Custom gravity variables
+var custom_gravity: float = gravity  # Default to the global gravity
+var is_using_custom_gravity: bool = false  # Track if custom gravity is active
+
+# Floating state variables
+var is_floating: bool = false  # Track if the player is in floating mode
+var float_amplitude: float = 500.0  # How far the player floats up and down
+var float_speed: float = 2.0  # How fast the player floats
+var float_time: float = 0.0  # Timer for floating animation
+var tilemap: TileMapLayer
+
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D  # Fixed reference
+@onready var area: Area2D = $PlayerArea2D
+@onready var inventory_ui: Control = $InventoryUI
+@onready var inventory: Inventory = $Inventory
+
+
+func _ready() -> void:
+    if Globals.player != null:
+        queue_free()  # Delete this duplicate instance if another already exists
+        return
+    Globals.player = self
+    tilemap = get_parent().get_node("Ground TileMap")
+    add_child(inventory)
+
+
+func _physics_process(delta: float) -> void:
+    if is_floating:
+        handle_floating_movement(delta)  # Handle floating movement
+    else:
+        handle_normal_movement(delta)  # Handle normal movement
+
+    if is_on_floor():
+      current_friction = get_tile_friction()
+
+    move_and_slide()
+
+func handle_normal_movement(delta: float):
+    # Apply gravity (either custom or default)
+    if not is_on_floor():
+        velocity.y += get_current_gravity() * delta
+
+    # Jump handling (only if on the floor)
+    if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+        velocity.y = JUMP_VELOCITY
+
+    # Horizontal movement
+    var direction = Input.get_axis("ui_left", "ui_right")
+    var target_velocity = direction * current_speed
+
+    if direction != 0:
+        velocity.x = move_toward(velocity.x, target_velocity, acceleration * delta)
+        animated_sprite.flip_h = direction < 0  # Now works properly
+        sprite_direction = direction 
+        area.position.x = AREA_OFFSET_X * direction
+        var grimoires = get_tree().get_nodes_in_group("grimoire")
+        for grimoire in grimoires:
+          grimoire.position.x = 0 if direction == 1 else -28
+          grimoire.flip(direction)
+    else:
+        velocity.x = move_toward(velocity.x, 0, current_friction * delta)
+
+    # Update animation
+    var new_animation = "idle"
+    if velocity.x != 0 and is_on_floor():
+        new_animation = "run"
+    if velocity.y != 0 and not is_on_floor():
+        new_animation = "jump"
+    if Input.is_action_pressed("use_item"):
+      new_animation = "cast_1"
+
+    if animated_sprite.animation != new_animation:
+        animated_sprite.play(new_animation)
+
+func get_tile_friction() -> float:
+  if not tilemap:
+    return default_friction
+
+  var local_pos = tilemap.to_local(global_position)
+  var player_pos = tilemap.local_to_map(local_pos)
+  var tile_pos = player_pos + Vector2i(0, 1)
+  var tile_data = tilemap.get_cell_tile_data(tile_pos)
+  if tile_data:
+    var friction = tile_data.get_custom_data("Friction")
+    if friction > default_friction:
+      current_speed = BASE_SPEED * (1.0/(1.0+(friction/100)))
+      return friction
+    if friction:
+      current_speed = BASE_SPEED
+      return friction
+
+  current_speed = BASE_SPEED
+  return default_friction
+
+func handle_floating_movement(delta: float):
+    # Disable gravity
+    velocity.y = 0
+
+    # Automatic floating up and down
+    float_time += delta
+    var vertical_offset = sin(float_time * float_speed) * float_amplitude
+    velocity.y = vertical_offset
+
+    # Horizontal movement (left/right)
+    var horizontal_direction = Input.get_axis("ui_left", "ui_right")
+    velocity.x = horizontal_direction * current_speed
+
+    # Update animation
+    var new_animation = "idle"
+    if velocity.x != 0:
+        new_animation = "run"
+
+    if animated_sprite.animation != new_animation:
+        animated_sprite.play(new_animation)
+
+# Function to enable floating mode
+func enable_floating():
+    is_floating = true
+    float_time = 0.0  # Reset floating timer
+    velocity = Vector2.ZERO  # Reset velocity
+
+# Function to disable floating mode
+func disable_floating():
+    is_floating = false
+    velocity = Vector2.ZERO  # Reset velocity
+
+# Function to set custom gravity
+func set_custom_gravity(new_gravity: float) -> void:
+    print("Player.set_custom_gravity() called with: ", new_gravity)
+    custom_gravity = new_gravity
+    is_using_custom_gravity = true
+
+# Function to reset gravity to default
+func reset_gravity() -> void:
+    print("Player.reset_gravity() called (default is ", gravity, ")")
+    custom_gravity = gravity
+    is_using_custom_gravity = false
+
+# Helper function to get the current gravity value
+func get_current_gravity() -> float:
+    return custom_gravity if is_using_custom_gravity else gravity
+
+# Function to update friction
+func set_friction(new_friction: float) -> void:
+    print("Player.set_friction() called with: ", new_friction, " (was ", current_friction, ")")
+    current_friction = new_friction
+    is_on_special_surface = true 
+
+# Function to reset friction to default
+func reset_friction() -> void:
+    print("Player.reset_friction() called (default is ", default_friction, ")")
+    current_friction = default_friction
+    is_on_special_surface = false    # Player is no longer on a special surface
+
+func toggle_movement():
+    movement_enabled = not movement_enabled
+    if not movement_enabled:
+        velocity.x = 0
+        velocity.y = 0
+
+
+func _on_player_fell_off():
+    get_tree().reload_current_scene()  # Restart the level

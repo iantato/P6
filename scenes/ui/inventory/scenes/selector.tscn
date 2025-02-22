@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfcq6hjjqllq5"]
+
+[ext_resource type="Script" path="res://scenes/ui/inventory/scripts/selector.gd" id="1_i47xk"]
+[ext_resource type="Texture2D" uid="uid://feavsqnfb07x" path="res://assets/GUI/Book Hotbar Buttons/Hotbar Buttons.png" id="2_uuwqv"]
+
+[node name="Selector" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i47xk")
+
+[node name="DimOverlay" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HotbarButtons" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+scale = Vector2(5, 5)
+texture = ExtResource("2_uuwqv")
+
+[node name="Slot1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 65.0
+offset_right = 110.0
+offset_bottom = 120.0
+
+[node name="Slot2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 65.0
+offset_right = 190.0
+offset_bottom = 120.0
+
+[node name="Slot3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 65.0
+offset_right = 265.0
+offset_bottom = 120.0
+
+[connection signal="pressed" from="Slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="Slot3" to="." method="_on_slot_3_pressed"]

@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://ct71r83kpoyme"]
+
+[ext_resource type="Texture2D" uid="uid://cejk24neltvlm" path="res://scenes/items/projectile/textures/Book Close - Projectile.png" id="1_kwe2x"]
+[ext_resource type="Script" path="res://scenes/items/base_items/grimoire_scene.gd" id="1_lx8vl"]
+[ext_resource type="Texture2D" uid="uid://cdvi7nbn8euuy" path="res://scenes/items/projectile/textures/Book Idle - Projectile.png" id="2_addku"]
+[ext_resource type="Texture2D" uid="uid://cckyo0lnhmljr" path="res://scenes/items/projectile/textures/Book Open - Projectile.png" id="3_6em8f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i008l"]
+atlas = ExtResource("1_kwe2x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr7oo"]
+atlas = ExtResource("1_kwe2x")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_estg0"]
+atlas = ExtResource("1_kwe2x")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiym1"]
+atlas = ExtResource("1_kwe2x")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqxfv"]
+atlas = ExtResource("2_addku")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oncq3"]
+atlas = ExtResource("2_addku")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soeev"]
+atlas = ExtResource("3_6em8f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhq0f"]
+atlas = ExtResource("3_6em8f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk63m"]
+atlas = ExtResource("3_6em8f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lci3"]
+atlas = ExtResource("3_6em8f")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4csl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i008l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr7oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_estg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiym1")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqxfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oncq3")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soeev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhq0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk63m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lci3")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="ProjectileGrimoire" type="Node2D" groups=["grimoire"]]
+script = ExtResource("1_lx8vl")
+
+[node name="Grimoire" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, -14)
+rotation = 0.523599
+sprite_frames = SubResource("SpriteFrames_c4csl")
+animation = &"close"

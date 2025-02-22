@@ -1,0 +1,103 @@
+[gd_scene load_steps=16 format=3 uid="uid://g0lkllad4q1p"]
+
+[ext_resource type="Texture2D" uid="uid://csq4ixxylx2sd" path="res://scenes/items/speed/textures/Book Close - Speed.png" id="1_5ggs2"]
+[ext_resource type="Script" path="res://scenes/items/base_items/grimoire_scene.gd" id="1_dxrqt"]
+[ext_resource type="Texture2D" uid="uid://pv35mxmo5052" path="res://scenes/items/speed/textures/Book Idle - Speed.png" id="2_q5c7o"]
+[ext_resource type="Texture2D" uid="uid://cn3htc48h1fhf" path="res://scenes/items/speed/textures/Book Open - Speed.png" id="3_7byw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1rlb"]
+atlas = ExtResource("1_5ggs2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6vav"]
+atlas = ExtResource("1_5ggs2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43xlh"]
+atlas = ExtResource("1_5ggs2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi64c"]
+atlas = ExtResource("1_5ggs2")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy0rx"]
+atlas = ExtResource("2_q5c7o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tdud"]
+atlas = ExtResource("2_q5c7o")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sukso"]
+atlas = ExtResource("3_7byw4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ullpg"]
+atlas = ExtResource("3_7byw4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py7h1"]
+atlas = ExtResource("3_7byw4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s6mg"]
+atlas = ExtResource("3_7byw4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01t1y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1rlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6vav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43xlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi64c")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy0rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tdud")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sukso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ullpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py7h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s6mg")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="SpeedGrimoire" type="Node2D"]
+script = ExtResource("1_dxrqt")
+
+[node name="Grimoire" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, -14)
+rotation = 0.523598
+sprite_frames = SubResource("SpriteFrames_01t1y")
+animation = &"close"

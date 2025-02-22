@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlyj38hc5cgbq"]
+
+[ext_resource type="Script" path="res://scenes/items/base_items/base_grimorie_inventory.gd" id="1_hbev6"]
+[ext_resource type="Texture2D" uid="uid://65w1br3fctej" path="res://scenes/items/intertia/Opened Book Locked.png" id="2_miwwo"]
+[ext_resource type="Texture2D" uid="uid://xsr5syc1vx5l" path="res://scenes/items/intertia/Opened Book Unlocked.png" id="3_xdvo7"]
+[ext_resource type="Texture2D" uid="uid://cvkbrrp4jsmqj" path="res://scenes/items/intertia/Closed Book.png" id="4_07ago"]
+[ext_resource type="Texture2D" uid="uid://bkxpuo1qqe26w" path="res://scenes/items/intertia/Title.png" id="5_62tp4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbxs8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7a74b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21wno"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r7mmw"]
+
+[node name="Inertia" type="Button"]
+offset_right = 63.0
+offset_bottom = 31.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vbxs8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7a74b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_21wno")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r7mmw")
+script = ExtResource("1_hbev6")
+type = 4
+
+[node name="Locked" type="Sprite2D" parent="."]
+position = Vector2(31, 14)
+texture = ExtResource("2_miwwo")
+
+[node name="Unlocked" type="Sprite2D" parent="."]
+position = Vector2(31, 14)
+texture = ExtResource("3_xdvo7")
+
+[node name="ClosedBook" type="Sprite2D" parent="."]
+position = Vector2(15, 14)
+texture = ExtResource("4_07ago")
+
+[node name="Title" type="Sprite2D" parent="ClosedBook"]
+position = Vector2(38, 1)
+texture = ExtResource("5_62tp4")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

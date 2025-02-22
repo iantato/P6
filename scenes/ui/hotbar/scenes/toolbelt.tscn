@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpfed70ay6qvw"]
+
+[ext_resource type="Texture2D" uid="uid://bvg6so1v1r884" path="res://scenes/ui/hotbar/textures/Toolbelt.png" id="1_ma5om"]
+[ext_resource type="Script" path="res://scenes/ui/hotbar/scripts/toolbelt.gd" id="1_y3ksl"]
+[ext_resource type="PackedScene" uid="uid://dfwbca2v7nqfe" path="res://scenes/ui/hotbar/scenes/Pouch1.tscn" id="2_52o86"]
+[ext_resource type="PackedScene" uid="uid://ctm1vvmiv5ush" path="res://scenes/ui/hotbar/scenes/Pouch2.tscn" id="3_lvyou"]
+[ext_resource type="PackedScene" uid="uid://cbllj1g6db6jq" path="res://scenes/ui/hotbar/scenes/Pouch3.tscn" id="4_n2dj1"]
+
+[node name="Hotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -34.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("1_y3ksl")
+
+[node name="Toolbelt" type="Sprite2D" parent="."]
+position = Vector2(32, 8)
+texture = ExtResource("1_ma5om")
+
+[node name="Pouch1" parent="." instance=ExtResource("2_52o86")]
+layout_mode = 1
+offset_left = 4.0
+offset_top = -1.0
+offset_right = -60.0
+offset_bottom = -35.0
+
+[node name="Pouch2" parent="." instance=ExtResource("3_lvyou")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = -1.0
+offset_right = -40.0
+offset_bottom = -35.0
+
+[node name="Pouch3" parent="." instance=ExtResource("4_n2dj1")]
+layout_mode = 1
+offset_left = 44.0
+offset_top = -1.0
+offset_right = -20.0
+offset_bottom = -35.0

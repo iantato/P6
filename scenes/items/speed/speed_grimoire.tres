@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpeedGrimoire" load_steps=4 format=3 uid="uid://03fla2su4dl6"]
+
+[ext_resource type="Texture2D" uid="uid://dgot7y0etyblc" path="res://GUI/Toolbelt/Grimoires/Speed.png" id="1_jagvk"]
+[ext_resource type="Script" path="res://scenes/items/speed/speed_grimoire.gd" id="1_r5w5b"]
+[ext_resource type="PackedScene" uid="uid://g0lkllad4q1p" path="res://scenes/items/speed/speed_grimoire.tscn" id="2_wxvqw"]
+
+[resource]
+script = ExtResource("1_r5w5b")
+speed_per_delta = 50
+item_name = "Speed Grimoire"
+use_type = 1
+toggleable = false
+hotbar_icon = ExtResource("1_jagvk")
+scene = ExtResource("2_wxvqw")

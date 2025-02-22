@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctm1vvmiv5ush"]
+
+[ext_resource type="Script" path="res://scenes/ui/hotbar/scripts/pouch.gd" id="1_2i4a2"]
+[ext_resource type="Texture2D" uid="uid://di6k2c6ar3217" path="res://scenes/ui/hotbar/textures/Pouch 2.png" id="2_fgb2f"]
+[ext_resource type="Texture2D" uid="uid://cqe7tc7euiymc" path="res://scenes/ui/hotbar/textures/Overlay.png" id="3_q0vo7"]
+
+[node name="Pouch2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -304.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2i4a2")
+
+[node name="Pouch2" type="Sprite2D" parent="."]
+position = Vector2(8, 17)
+texture = ExtResource("2_fgb2f")
+
+[node name="Grimoire" type="Sprite2D" parent="."]
+position = Vector2(8, 9)
+
+[node name="Overlay" type="Sprite2D" parent="."]
+position = Vector2(8, 16)
+texture = ExtResource("3_q0vo7")

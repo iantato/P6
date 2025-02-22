@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://dd7q8wkemdwol"]
+
+[ext_resource type="Script" path="res://scenes/items/base_items/base_grimorie_inventory.gd" id="1_yolpd"]
+[ext_resource type="Texture2D" uid="uid://7pls3iymawfn" path="res://scenes/items/friction/texture/Opened Book - Locked.png" id="2_ph4kw"]
+[ext_resource type="Texture2D" uid="uid://0pcmd2yhe7eh" path="res://scenes/items/friction/texture/Opened Book - Unlocked.png" id="3_b25lv"]
+[ext_resource type="Texture2D" uid="uid://btsft5074o3r" path="res://scenes/items/friction/texture/Closed Book.png" id="4_py71i"]
+[ext_resource type="Texture2D" uid="uid://buwaic32oyxpt" path="res://scenes/items/friction/texture/Title.png" id="5_6w52t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbxs8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7a74b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21wno"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r7mmw"]
+
+[node name="Friction" type="Button"]
+offset_right = 63.0
+offset_bottom = 31.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vbxs8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7a74b")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_21wno")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r7mmw")
+script = ExtResource("1_yolpd")
+type = 1
+
+[node name="Locked" type="Sprite2D" parent="."]
+position = Vector2(31, 14)
+texture = ExtResource("2_ph4kw")
+
+[node name="Unlocked" type="Sprite2D" parent="."]
+position = Vector2(31, 14)
+texture = ExtResource("3_b25lv")
+
+[node name="ClosedBook" type="Sprite2D" parent="."]
+position = Vector2(15, 14)
+texture = ExtResource("4_py71i")
+
+[node name="Title" type="Sprite2D" parent="ClosedBook"]
+position = Vector2(38, 1)
+texture = ExtResource("5_6w52t")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

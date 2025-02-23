@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://deq37dhs7gh07"]
+[gd_scene load_steps=12 format=4 uid="uid://deq37dhs7gh07"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_q8aix"]
 [ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_wnxxo"]
 [ext_resource type="TileSet" uid="uid://c14mlaup73w4p" path="res://data/tileset/friction.tres" id="2_dypu6"]
+[ext_resource type="PackedScene" uid="uid://bctl8vvwjaont" path="res://scenes/blocks/door/door.tscn" id="3_0uowg"]
 [ext_resource type="PackedScene" uid="uid://570o7ljhdp2x" path="res://scenes/blocks/boulder/boulder.tscn" id="3_dal4k"]
 [ext_resource type="PackedScene" uid="uid://bpfed70ay6qvw" path="res://scenes/ui/hotbar/scenes/toolbelt.tscn" id="4_amjxr"]
 [ext_resource type="PackedScene" uid="uid://b0yu6jtf5d28k" path="res://scenes/ui/inventory/scenes/inventory_ui.tscn" id="5_si1og"]
@@ -19,11 +20,11 @@ tile_set = ExtResource("1_wnxxo")
 
 [node name="Laser" parent="Ground" instance=ExtResource("10_1mb2m")]
 position = Vector2(123, -106)
-interval = 5.0
+off_time = 4.0
 
 [node name="Laser2" parent="Ground" instance=ExtResource("10_1mb2m")]
-position = Vector2(10, -114)
-interval = 5.0
+position = Vector2(54, -112)
+on_time = 4.0
 
 [node name="Player" parent="." instance=ExtResource("1_q8aix")]
 
@@ -57,3 +58,6 @@ position = Vector2(35, 0)
 
 [node name="Laser" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_wnxxo")
+
+[node name="TileMapLayer" parent="." instance=ExtResource("3_0uowg")]
+position = Vector2(144, -15)

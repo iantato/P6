@@ -14,3 +14,13 @@ script = ExtResource("2_20wnj")
 
 [node name="Shape" type="CollisionShape2D" parent="KillZone"]
 shape = SubResource("RectangleShape2D_ioc5g")
+
+[node name="OnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="OffTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
+[connection signal="timeout" from="OnTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="OffTimer" to="." method="_on_off_timer_timeout"]

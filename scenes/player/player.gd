@@ -54,7 +54,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func handle_normal_movement(delta: float):
-	# Apply gravity (either custom or default)
+
+	var new_animation = "idle"
+	if velocity.x != 0 and is_on_floor():
+		new_animation = "run"
+	if velocity.y != 0 and not is_on_floor():
+		new_animation = "jump"
+	if Input.is_action_pressed("use_item") and $Hotbar.hotbar[$Hotbar.selected_slot]:
+		new_animation = "cast_1"
+
+	if animated_sprite.animation != new_animation:
+		animated_sprite.play(new_animation)
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	if not movement_enabled:
@@ -79,17 +89,7 @@ func handle_normal_movement(delta: float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_friction * delta)
 
-	# Update animation
-	var new_animation = "idle"
-	if velocity.x != 0 and is_on_floor():
-		new_animation = "run"
-	if velocity.y != 0 and not is_on_floor():
-		new_animation = "jump"
-	if Input.is_action_pressed("use_item") and $Hotbar.hotbar[$Hotbar.selected_slot]:
-		new_animation = "cast_1"
 
-	if animated_sprite.animation != new_animation:
-		animated_sprite.play(new_animation)
 
 func get_tile_friction() -> float:
 	if not tilemap:

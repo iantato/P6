@@ -69,12 +69,10 @@ func _on_kill_zone_body_entered(body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	print("shoot")
 	shoot(cells_to_change)
 	killzone.visible = true
 	off_timer.start()
 func _on_off_timer_timeout() -> void:
-	print("off")
 	unshoot(cells_to_change)
 	killzone.visible = false
 	on_timer.start()

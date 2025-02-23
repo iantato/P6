@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://c22l64a7uy4o2"]
+[gd_scene load_steps=27 format=4 uid="uid://c22l64a7uy4o2"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_8b6p1"]
 [ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_nbbyn"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/levels/level_3/scripts/gravity_pad.gd" id="12_cj2rr"]
 [ext_resource type="PackedScene" uid="uid://clpvhlmgxhpo0" path="res://scenes/blocks/button/button.tscn" id="13_8vydx"]
 [ext_resource type="Script" path="res://scenes/levels/level_3/scripts/killzone.gd" id="15_8y1be"]
+[ext_resource type="Script" path="res://scenes/levels/level_3/wind_zone.gd" id="16_r3ekx"]
 
 [sub_resource type="Gradient" id="Gradient_uik03"]
 offsets = PackedFloat32Array(0.140496, 1)
@@ -55,6 +56,9 @@ fill_to = Vector2(0.786325, 0.179487)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e866t"]
 size = Vector2(1225.5, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nii2t"]
+size = Vector2(1057, 476)
 
 [node name="Level3" type="Node2D"]
 position = Vector2(3, 0)
@@ -384,8 +388,22 @@ position = Vector2(612, 337)
 shape = SubResource("RectangleShape2D_e866t")
 debug_color = Color(0.7, 0, 0, 0.419608)
 
+[node name="WindZone" type="Area2D" parent="."]
+script = ExtResource("16_r3ekx")
+change_every = 3.0
+min_strength = 200.0
+max_strength = 800.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindZone"]
+position = Vector2(529.5, 62)
+shape = SubResource("RectangleShape2D_nii2t")
+
+[node name="Timer" type="Timer" parent="WindZone"]
+
 [connection signal="body_entered" from="Ground/Gravity Pad Checker" to="Ground/Gravity Pad Checker" method="_on_gravity_pad"]
 [connection signal="body_exited" from="Ground/Gravity Pad Checker" to="Ground/Gravity Pad Checker" method="_exited_gravity_pad"]
 [connection signal="body_entered" from="Ground/Gravity Pad Checker 2" to="Ground/Gravity Pad Checker 2" method="_on_gravity_pad"]
 [connection signal="body_exited" from="Ground/Gravity Pad Checker 2" to="Ground/Gravity Pad Checker 2" method="_exited_gravity_pad"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_killzone_entered"]
+[connection signal="body_entered" from="WindZone" to="WindZone" method="_on_body_entered"]
+[connection signal="timeout" from="WindZone/Timer" to="WindZone" method="_on_timer_timeout"]

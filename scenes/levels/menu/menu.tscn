@@ -75,12 +75,6 @@ text = "MOVE WITH"
 label_settings = SubResource("LabelSettings_pgtbb")
 horizontal_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="GUI"]
-offset_right = 318.0
-offset_bottom = 180.0
-virtual_keyboard_enabled = false
-deselect_on_focus_loss_enabled = false
-
 [node name="Transition" type="CanvasLayer" parent="."]
 
 [node name="NextLevelTransition" parent="Transition" instance=ExtResource("9_m8ipg")]

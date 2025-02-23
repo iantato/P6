@@ -160,6 +160,7 @@ shape = SubResource("RectangleShape2D_qcrs1")
 debug_color = Color(0.856412, 0.000748529, 0.884545, 0.42)
 
 [node name="GUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Hotbar" parent="GUI" instance=ExtResource("3_qi5pa")]
 offset_left = -71.0

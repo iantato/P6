@@ -12,3 +12,4 @@ func update_display():
 	var seconds = int(elapsed_time) % 60
 	
 	self.text = "%02d:%02d" % [minutes, seconds]
+	

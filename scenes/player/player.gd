@@ -94,7 +94,8 @@ func get_tile_friction() -> float:
 		return default_friction
 
 	var local_pos = tilemap.to_local(global_position)
-	var tile_pos = tilemap.local_to_map(local_pos)
+	var tile_pos_less = tilemap.local_to_map(local_pos)
+	var tile_pos = tile_pos_less + Vector2i(0, 1)
 	var tile_data = tilemap.get_cell_tile_data(tile_pos)
 	if tile_data:
 		var friction = tile_data.get_custom_data("friction")

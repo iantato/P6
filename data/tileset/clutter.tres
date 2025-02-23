@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://dw0bf48df68rs"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://dw0bf48df68rs"]
 
 [ext_resource type="Texture2D" uid="uid://bj8aq8xd64rxx" path="res://assets/tiles/Fence.png" id="1_t1jta"]
 [ext_resource type="Texture2D" uid="uid://bii83koj2n2i" path="res://assets/tiles/Bridge Pillar 1.png" id="2_6unik"]
 [ext_resource type="Texture2D" uid="uid://dcbdhnwq8btjy" path="res://assets/tiles/Bridge Pillar 2.png" id="2_iqwf4"]
 [ext_resource type="Texture2D" uid="uid://bl0mvl75agyt7" path="res://assets/tiles/Fallen Bark.png" id="3_nb0y8"]
 [ext_resource type="Texture2D" uid="uid://d2cpid106o3s4" path="res://assets/tiles/Foliage.png" id="3_yk8qq"]
+[ext_resource type="Texture2D" uid="uid://744kbc4ek03l" path="res://assets/tiles/Laser.png" id="6_jco8u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26c2s"]
 texture = ExtResource("1_t1jta")
@@ -48,9 +49,30 @@ texture = ExtResource("3_yk8qq")
 0:2/0 = 0
 0:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vlb7h"]
+texture = ExtResource("6_jco8u")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+
 [resource]
+physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_3jg74")
 sources/4 = SubResource("TileSetAtlasSource_3xg3e")
 sources/2 = SubResource("TileSetAtlasSource_sdb4m")
 sources/3 = SubResource("TileSetAtlasSource_h8d7x")
 sources/0 = SubResource("TileSetAtlasSource_26c2s")
+sources/5 = SubResource("TileSetAtlasSource_vlb7h")

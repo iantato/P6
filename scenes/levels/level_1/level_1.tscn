@@ -125,17 +125,6 @@ visible = false
 texture = ExtResource("10_ft0d0")
 centered = false
 
-[node name="GUI" type="CanvasLayer" parent="."]
-
-[node name="Hotbar" parent="GUI" instance=ExtResource("3_qi5pa")]
-offset_left = -71.0
-offset_right = -7.0
-
-[node name="InventoryUI" parent="GUI" instance=ExtResource("9_gngkw")]
-z_index = 10
-
-[node name="NextLevelTransition" parent="GUI" instance=ExtResource("12_xcofj")]
-
 [node name="Leaves" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_j8hjn")
 position = Vector2(654, -59)
@@ -168,6 +157,17 @@ script = ExtResource("14_dvdfd")
 position = Vector2(1118, 71)
 shape = SubResource("RectangleShape2D_qcrs1")
 debug_color = Color(0.856412, 0.000748529, 0.884545, 0.42)
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Hotbar" parent="GUI" instance=ExtResource("3_qi5pa")]
+offset_left = -71.0
+offset_right = -7.0
+
+[node name="InventoryUI" parent="GUI" instance=ExtResource("9_gngkw")]
+z_index = 10
+
+[node name="NextLevelTransition" parent="GUI" instance=ExtResource("12_xcofj")]
 
 [connection signal="body_entered" from="Ground/Bridge Collision" to="Ground/Bridge Collision" method="_explode_bridge"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_killzone_entered"]

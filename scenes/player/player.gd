@@ -43,7 +43,6 @@ func _ready() -> void:
 	Globals.player = self
 	tilemap = get_parent().get_node("Friction")
 
-
 func _physics_process(delta: float) -> void:
 	handle_normal_movement(delta)  # Handle normal movement
 

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=4 uid="uid://bctl8vvwjaont"]
+
+[ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_0cobg"]
+[ext_resource type="Script" path="res://scenes/blocks/door/door.gd" id="2_nmhbr"]
+
+[node name="TileMapLayer" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAAAAAAAAQAFAAQAAAADAAAAAQAEAAQAAAABAAAAAQAEAAAAAAACAAAAAQAFAAAAAAADAP//AQADAAEAAAADAP7/AQACAAEAAAADAP3/AQADAAEAAAADAPz/AQACAAEAAAADAPv/AQACAAQAAAAAAPv/AQADAAQAAAAAAPz/AQAFAAEAAAAAAP3/AQAFAAEAAAAAAP7/AQAFAAEAAAAAAP//AQAEAAEAAAABAPv/AQADAAAAAAACAPv/AQACAAAAAAABAPz/AQAEAAUAAAABAP3/AQAEAAUAAAABAP7/AQAEAAUAAAABAP//AQAEAAUAAAACAP//AQAEAAUAAAACAP7/AQAEAAUAAAACAP3/AQAEAAUAAAACAPz/AQAEAAUAAAA=")
+tile_set = ExtResource("1_0cobg")
+script = ExtResource("2_nmhbr")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -8,7 +8,7 @@ signal hotbar_selected_slot_changed(slot: int)
 # Player instance
 var player: Node = null
 var player_id: int = 0
-var current_level: int = -1
+var current_level: int = 1
 
 # Time tracking variables
 var level_times: Dictionary = {}  # Stores time spent in each level

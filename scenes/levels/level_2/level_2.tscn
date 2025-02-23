@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cpo8st6o6xr7u"]
+[gd_scene load_steps=33 format=4 uid="uid://cpo8st6o6xr7u"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_2/scripts/level_2.gd" id="1_3xo7v"]
 [ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_qijtq"]
@@ -19,7 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://dn6ydr6vmxshc" path="res://scenes/transition/next_level/next_level.tscn" id="13_yrfgt"]
 [ext_resource type="Script" path="res://scenes/levels/level_2/scripts/killzone.gd" id="14_ouqpj"]
 [ext_resource type="PackedScene" uid="uid://570o7ljhdp2x" path="res://scenes/blocks/boulder/boulder.tscn" id="16_so55p"]
+[ext_resource type="PackedScene" uid="uid://c1orgu2lvn457" path="res://scenes/ui/reset/reset.tscn" id="17_jjslo"]
+[ext_resource type="PackedScene" uid="uid://cue4a06scd4cs" path="res://scenes/ui/timer/timer.tscn" id="18_h2r7s"]
 [ext_resource type="PackedScene" uid="uid://bctl8vvwjaont" path="res://scenes/blocks/door/door.tscn" id="20_7h6wy"]
+[ext_resource type="Script" path="res://scenes/levels/level_2/scripts/next_level.gd" id="21_vjqic"]
 
 [sub_resource type="Gradient" id="Gradient_cxabi"]
 offsets = PackedFloat32Array(0.236559, 0.802867)
@@ -64,7 +67,7 @@ script = ExtResource("1_3xo7v")
 position = Vector2(183, 136)
 
 [node name="Player" parent="." instance=ExtResource("3_gif5w")]
-position = Vector2(32, 140)
+position = Vector2(1460, 3)
 
 [node name="Background Music" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-30, -175)
@@ -82,7 +85,7 @@ limit_right = 1625
 script = ExtResource("5_v1fqv")
 
 [node name="Button" parent="." instance=ExtResource("6_rtlle")]
-position = Vector2(1480, 15.25)
+position = Vector2(1480, 15.45)
 
 [node name="Boulder" parent="." instance=ExtResource("16_so55p")]
 position = Vector2(320, 136)
@@ -120,6 +123,10 @@ position = Vector2(1, 0)
 tile_map_data = PackedByteArray("AAAGAAgAAAADAAAAAAAKAAgABAAAAAEAAAAHAAgABAAAAAAAAAABAAgABAAAAAEAAAAgAPr/AQAAAAAAAAAhAPr/BAAAAAAAAAAkAPn/BAAAAAIAAAAmAPr/AgAAAAAAAAAzAPD/BAAAAAEAAAA0AO7/AQAAAAAAAAA3AO7/BAAAAAEAAAA4AO7/BAAAAAIAAAA+AAUAAQAAAAAAAAA/AAUABAAAAAAAAABBAAUABAAAAAEAAABGAAEABAAAAAIAAABHAAEABAAAAAAAAABIAAEAAwAAAAAAAABJAAEAAwAFAAAAAABLAAEABAAAAAAAAAAbAAgAAgAAAAAAAAADAAgAAAABAAAAAAAEAAgAAAACAAAAAAAFAAgAAAABAAAAAAACAAgAAAAAAAAAAAAQAAgABAAAAAIAAAAWAAgABAAAAAEAAAATAAgABAAAAAMAAAAPAAgABAAAAAAAAABZAP//BgABAAAAAABZAAAABgABAAEAAABZAAEABgABAAIAAABeAAAABwABAAAAAABhAAAABwAAAAAAAABhAO//BwAAAAEAAABaAAAABwAAAAAAAAA=")
 tile_set = ExtResource("4_ipwqo")
 
+[node name="Door" parent="." instance=ExtResource("20_7h6wy")]
+position = Vector2(1584, 0)
+time_before_closing = 1
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -152,6 +159,13 @@ offset_right = -7.0
 z_index = 10
 
 [node name="NextLevelTransition" parent="GUI" instance=ExtResource("13_yrfgt")]
+
+[node name="Reset" parent="GUI" instance=ExtResource("17_jjslo")]
+theme_type_variation = &"FlatButton"
+text = "
+"
+
+[node name="Timer" parent="GUI" instance=ExtResource("18_h2r7s")]
 
 [node name="Leaves" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_ww45s")
@@ -200,17 +214,16 @@ shape = SubResource("RectangleShape2D_5c32q")
 debug_color = Color(0.77, 0, 0, 0.419608)
 
 [node name="NextLevel" type="Area2D" parent="."]
+script = ExtResource("21_vjqic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
-position = Vector2(1623, -45)
+position = Vector2(1652, -45)
 shape = SubResource("RectangleShape2D_kgrw1")
 debug_color = Color(0.854902, 0, 0.886275, 0.419608)
-
-[node name="TileMapLayer" parent="." instance=ExtResource("20_7h6wy")]
-position = Vector2(1584, 0)
 
 [connection signal="body_entered" from="Ground/Gravity Pad Checker 2" to="Ground/Gravity Pad Checker 2" method="_on_gravity_pad"]
 [connection signal="body_exited" from="Ground/Gravity Pad Checker 2" to="Ground/Gravity Pad Checker 2" method="_exited_gravity_pad"]
 [connection signal="body_entered" from="Ground/Gravity Pad Checker 1" to="Ground/Gravity Pad Checker 1" method="_on_gravity_pad"]
 [connection signal="body_exited" from="Ground/Gravity Pad Checker 1" to="Ground/Gravity Pad Checker 1" method="_exited_gravity_pad"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_killzone_entered"]
+[connection signal="body_entered" from="NextLevel" to="NextLevel" method="_next_level_entered"]

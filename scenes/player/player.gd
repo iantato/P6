@@ -40,10 +40,8 @@ func _ready() -> void:
 		queue_free()  # Delete this duplicate instance if another already exists
 		return
 	checkpoint_position = global_position
-	print(checkpoint_position)
 	Globals.player = self
 	tilemap = get_parent().get_node("Friction")
-	add_child(inventory)
 
 
 func _physics_process(delta: float) -> void:

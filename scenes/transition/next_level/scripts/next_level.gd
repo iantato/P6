@@ -6,6 +6,12 @@ var texts : Dictionary = {
 	2: "Friction is the force that slows things down when they rub against each other, and it depends on how rough the surfaces are and how hard they’re pressed together."
 }
 
+var scenes : Dictionary = {
+	0: "res://scenes/levels/level_1/level_1.tscn",
+	1: "res://scenes/levels/level_2/level_2.tscn",
+	2: "res://scenes/levels/level_3/level_3.tscn"
+}
+
 func to_next_level(current_level: int = Globals.current_level):
 	var label: Label = get_node("Label")
 	label.text = texts[current_level]

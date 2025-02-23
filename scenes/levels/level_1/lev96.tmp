@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=4 uid="uid://cb1a74p57g37t"]
+
+[ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_130bl"]
+[ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/grass.tres" id="1_bceuv"]
+[ext_resource type="TileSet" uid="uid://dw0bf48df68rs" path="res://data/tileset/clutter.tres" id="2_clxqg"]
+[ext_resource type="Texture2D" uid="uid://bxolxce0owrpv" path="res://assets/background/Overworld (Temp).png" id="2_lne54"]
+[ext_resource type="PackedScene" uid="uid://bpfed70ay6qvw" path="res://scenes/ui/hotbar/scenes/toolbelt.tscn" id="3_qi5pa"]
+[ext_resource type="Texture2D" uid="uid://cqh3182b01k8c" path="res://assets/tiles/Codex.png" id="4_hs6ky"]
+[ext_resource type="AudioStream" uid="uid://ccsx0mgpq1teo" path="res://audio/forest.ogg" id="6_1uv33"]
+[ext_resource type="Texture2D" uid="uid://bkqu1ptxednph" path="res://assets/particles/Leaves.png" id="7_nub7o"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_glh7j"]
+texture = ExtResource("4_hs6ky")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2sfxq"]
+sources/0 = SubResource("TileSetAtlasSource_glh7j")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j8hjn"]
+
+[sub_resource type="Curve" id="Curve_dxcso"]
+min_value = 123.37
+max_value = 350.91
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 15.3846), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_e3wac"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 11.8682), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_130bl")]
+position = Vector2(30, 176)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2(-30, -176)
+stream = ExtResource("6_1uv33")
+volume_db = -5.943
+autoplay = true
+parameters/looping = true
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -1)
+offset = Vector2(0, -60)
+limit_left = 0
+
+[node name="Clutter" type="TileMapLayer" parent="."]
+z_index = 1
+tile_map_data = PackedByteArray("AAAEAAoABAAAAAAAAAALAAoABAAAAAMAAAAMAAoABAAAAAAAAAANAAoABAAAAAEAAAAOAAoABAAAAAEAAAARAAoABAAAAAEAAAAUAAoABAAAAAEAAAAXAAoABAAAAAEAAAAYAAoABAAAAAIAAAAZAAoABAAAAAIAAAAaAAoABAAAAAEAAAAbAAoABAAAAAMAAAAgAAoABAAAAAIAAAAhAAoABAAAAAEAAAAkAAoABAAAAAEAAAApAAoABAAAAAIAAAA=")
+tile_set = ExtResource("2_clxqg")
+
+[node name="Ground" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAJAAwAAAAEAAMAAAAIAAwAAAADAAMAAAAHAAwAAAADAAMAAAAGAAwAAAAEAAMAAAAFAAwAAAADAAMAAAAEAAwAAAADAAMAAAADAAwAAAADAAMAAAACAAwAAAAEAAMAAAABAAwAAAAEAAMAAAAAAAwAAAAEAAMAAAAAAA0AAAACAAMAAAABAA0AAAACAAMAAAACAA0AAAACAAMAAAADAA0AAAACAAMAAAAEAA0AAAACAAMAAAAFAA0AAAACAAMAAAAGAA0AAAACAAMAAAAHAA0AAAACAAMAAAAIAA0AAAACAAMAAAAJAA0AAAACAAMAAAAKAAwAAAADAAMAAAAKAA0AAAACAAMAAAALAA0AAAACAAMAAAALAAwAAAADAAMAAAAMAAwAAAADAAMAAAANAAwAAAAEAAMAAAAOAAwAAAAEAAMAAAARAAwAAAADAAMAAAAQAAwAAAADAAMAAAAPAAwAAAAEAAMAAAAMAA0AAAACAAMAAAANAA0AAAACAAMAAAAOAA0AAAACAAMAAAAPAA0AAAACAAMAAAAQAA0AAAACAAMAAAARAA0AAAACAAMAAAAAAAsAAAACAAAAAAABAAsAAAACAAAAAAACAAsAAAADAAAAAAADAAsAAAADAAAAAAAEAAsAAAACAAAAAAAFAAsAAAAEAAAAAAANAAsAAAAEAAAAAAAOAAsAAAAEAAAAAAAPAAsAAAADAAAAAAAQAAsAAAAEAAAAAAARAAsAAAADAAAAAAASAAwAAAADAAMAAAASAA0AAAACAAMAAAASAAsAAAAEAAAAAAATAAsAAAAEAAAAAAAUAAsAAAAEAAAAAAAVAAsAAAAEAAAAAAAWAAsAAAAEAAAAAAATAAwAAAADAAMAAAAUAAwAAAAEAAMAAAAVAAwAAAADAAMAAAAWAAwAAAADAAMAAAATAA0AAAACAAMAAAAUAA0AAAACAAMAAAAVAA0AAAACAAMAAAAWAA0AAAACAAMAAAAXAAsAAAACAAAAAAAXAAwAAAAEAAMAAAAXAA0AAAACAAMAAAAiAAsAAAADAAAAAAAjAAsAAAAEAAAAAAAkAAsAAAADAAAAAAAlAAsAAAACAAAAAAAmAAsAAAACAAAAAAAnAAsAAAAEAAAAAAAoAAsAAAACAAAAAAApAAsAAAAEAAAAAAAqAAsAAAADAAAAAAArAAsAAAACAAIAAAAGAAsAAAACAAAAAAAHAAsAAAAEAAAAAAAMAAsAAAACAAAAAAALAAsAAAACAAAAAAAKAAsAAAADAAAAAAAJAAsAAAADAAAAAAAIAAsAAAAEAAAAAAAhAAsAAAADAAAAAAAgAAsAAAAEAAAAAAAfAAsAAAACAAAAAAAeAAsAAAACAAAAAAAeAAwAAAAEAAMAAAAeAA0AAAACAAMAAAAfAAwAAAADAAMAAAAfAA0AAAACAAMAAAAgAA0AAAACAAMAAAAhAA0AAAACAAMAAAAiAA0AAAACAAMAAAAjAA0AAAACAAMAAAAkAA0AAAACAAMAAAAlAA0AAAACAAMAAAAmAA0AAAACAAMAAAAnAA0AAAACAAMAAAAoAA0AAAACAAMAAAApAA0AAAACAAMAAAAqAA0AAAACAAMAAAArAA0AAAACAAMAAAArAAwAAAABAAQAAAAqAAwAAAADAAMAAAApAAwAAAADAAMAAAAoAAwAAAADAAMAAAAnAAwAAAADAAMAAAAmAAwAAAAEAAMAAAAlAAwAAAAEAAMAAAAkAAwAAAADAAMAAAAjAAwAAAAEAAMAAAAiAAwAAAAEAAMAAAAhAAwAAAADAAMAAAAgAAwAAAAEAAMAAAAYAAsAAAACAAAAAAAZAAsAAAACAAAAAAAaAAsAAAAEAAAAAAAbAAsAAAAEAAAAAAAcAAsAAAACAAAAAAAdAAsAAAAEAAAAAAAdAAwAAAADAAMAAAAcAAwAAAAEAAMAAAAbAAwAAAAEAAMAAAAaAAwAAAAEAAMAAAAZAAwAAAADAAMAAAAYAAwAAAADAAMAAAAYAA0AAAACAAMAAAAZAA0AAAACAAMAAAAaAA0AAAACAAMAAAAbAA0AAAACAAMAAAAcAA0AAAACAAMAAAAdAA0AAAACAAMAAAAyAAsAAAACAAEAAAAyAAwAAAADAAQAAAAzAAwAAAADAAMAAAA0AAwAAAADAAMAAAA1AAwAAAADAAMAAAA2AAwAAAAEAAMAAAA3AAwAAAAEAAMAAAA4AAwAAAADAAMAAAA5AAwAAAAEAAMAAAA6AAwAAAAEAAMAAAA7AAwAAAAEAAMAAAA8AAwAAAAEAAMAAAA9AAwAAAAEAAMAAAA+AAwAAAAEAAMAAAAzAAsAAAACAAAAAAA0AAsAAAACAAAAAAA1AAsAAAAEAAAAAAA2AAsAAAADAAAAAAA3AAsAAAACAAAAAAA4AAsAAAADAAAAAAA5AAsAAAACAAAAAAA6AAsAAAADAAAAAAA7AAsAAAAEAAAAAAA8AAsAAAAEAAAAAAA9AAsAAAACAAAAAAA+AAsAAAADAAAAAAAyAA0AAAACAAMAAAAzAA0AAAACAAMAAAA0AA0AAAACAAMAAAA1AA0AAAACAAMAAAA2AA0AAAACAAMAAAA3AA0AAAACAAMAAAA4AA0AAAACAAMAAAA5AA0AAAACAAMAAAA6AA0AAAACAAMAAAA7AA0AAAACAAMAAAA8AA0AAAACAAMAAAA9AA0AAAACAAMAAAA+AA0AAAACAAMAAAD//woAAAACAAMAAAD//wkAAAACAAMAAAD//wgAAAACAAMAAAD//wcAAAACAAMAAAD//wYAAAACAAMAAAD//wUAAAACAAMAAAD//wQAAAACAAMAAAD//wMAAAACAAMAAAD//wIAAAACAAMAAAD//wEAAAACAAMAAAD//wAAAAACAAMAAAA=")
+tile_set = ExtResource("1_bceuv")
+
+[node name="Codex" type="TileMapLayer" parent="."]
+z_index = -1
+tile_set = SubResource("TileSet_2sfxq")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.05)
+motion_offset = Vector2(0, -10)
+motion_mirroring = Vector2(560, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, -18)
+texture = ExtResource("2_lne54")
+centered = false
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_j8hjn")
+position = Vector2(546, -51)
+amount = 16
+speed_scale = 0.35
+texture = ExtResource("7_nub7o")
+emission_shape = 3
+emission_rect_extents = Vector2(500, 1)
+gravity = Vector2(-843, 958)
+initial_velocity_max = 4.0
+linear_accel_min = -96.96
+linear_accel_max = -81.86
+linear_accel_curve = SubResource("Curve_dxcso")
+angle_max = 49.0
+angle_curve = SubResource("Curve_e3wac")
+scale_amount_min = 0.9
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="Hotbar" parent="GUI" instance=ExtResource("3_qi5pa")]
+offset_left = -71.0
+offset_right = -7.0

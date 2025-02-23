@@ -11,10 +11,10 @@ func _ready() -> void:
 	db.open_db()
 	
 	db.query("CREATE TABLE IF NOT EXISTS players (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, level INTEGER, time FLOAT)")
-	insert_player("Test")
-	get_player_id("Test")
-	insert_time(1, 2.3848938)
-	get_time(1)
+	#insert_player("Test")
+	#get_player_id("Test")
+	#insert_time(1, 2.3848938)
+	#get_time(1)
 
 
 func insert_player(name: String) -> void:

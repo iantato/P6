@@ -150,7 +150,6 @@ texture = ExtResource("10_0564j")
 centered = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Hotbar" parent="GUI" instance=ExtResource("8_y4alm")]
 offset_left = -71.0

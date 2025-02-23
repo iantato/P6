@@ -62,7 +62,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"close",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -100,4 +100,4 @@ script = ExtResource("1_00f4s")
 position = Vector2(12, -14)
 rotation = 0.523599
 sprite_frames = SubResource("SpriteFrames_0tn4e")
-animation = &"idle"
+animation = &"close"

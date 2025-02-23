@@ -53,32 +53,24 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func handle_normal_movement(delta: float):
-	var new_animation = animated_sprite.animation
-	if is_on_floor():
-		if velocity.x != 0:
-			new_animation = "run"
-		elif new_animation != "cast_loop":  # Prevent override when casting
-			new_animation = "idle"
-	elif velocity.y != 0 and not is_on_floor():
-		new_animation = "jump"
-	if Input.is_action_pressed("use_item") and $Hotbar.hotbar[$Hotbar.selected_slot] and animated_sprite.animation != "cast_loop":
-		new_animation = "cast_1"
+    var new_animation = "idle"
+    if velocity.x != 0:
+        new_animation = "run"
+    elif velocity.y != 0 and not is_on_floor():
+        new_animation = "jump"
+    elif Input.is_action_pressed("use_item") and $Hotbar.hotbar[$Hotbar.selected_slot]:
+        new_animation = "cast_loop"
 
-	if animated_sprite.animation != new_animation:
-		animated_sprite.play(new_animation)
-		if new_animation == "cast_1":
-			await animated_sprite.animation_finished
-			if Input.is_action_pressed("use_item"):
-				animated_sprite.play("cast_loop")
-			else:
-				animated_sprite.play("idle")
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	if not movement_enabled:
-		return
-	# Jump handling (only if on the floor)
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+    if animated_sprite.animation != new_animation:
+        animated_sprite.play(new_animation)
+
+    if not is_on_floor():
+        velocity.y += gravity * delta
+    if not movement_enabled:
+        return
+    # Jump handling (only if on the floor)
+    if Input.is_action_just_pressed("jump") and is_on_floor():
+        velocity.y = JUMP_VELOCITY
 
 	# Horizontal movement
 	var direction = Input.get_axis("ui_left", "ui_right")

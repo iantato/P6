@@ -62,7 +62,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"close",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -71,7 +71,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7tdud")
 }],
-"loop": false,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -90,7 +90,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"open",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="SpeedGrimoire" type="Node2D" groups=["grimoire"]]
@@ -100,4 +100,4 @@ script = ExtResource("1_dxrqt")
 position = Vector2(12, -14)
 rotation = 0.523598
 sprite_frames = SubResource("SpriteFrames_01t1y")
-animation = &"close"
+animation = &"open"

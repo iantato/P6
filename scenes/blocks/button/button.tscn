@@ -63,7 +63,7 @@ shape = SubResource("RectangleShape2D_ilca5")
 [node name="ButtonSprite" type="AnimatedSprite2D" parent="ButtonBody"]
 position = Vector2(1, -8)
 sprite_frames = SubResource("SpriteFrames_d51eu")
-animation = &"press_down"
+animation = &"press_up"
 
 [node name="ButtonArea" type="Area2D" parent="."]
 

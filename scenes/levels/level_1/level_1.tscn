@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cb1a74p57g37t"]
+[gd_scene load_steps=24 format=4 uid="uid://cb1a74p57g37t"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_130bl"]
 [ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_bceuv"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6ydr6vmxshc" path="res://scenes/transition/next_level/next_level.tscn" id="12_xcofj"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/scripts/killzone.gd" id="13_pb00n"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/scripts/next_level.gd" id="14_dvdfd"]
+[ext_resource type="PackedScene" uid="uid://c1orgu2lvn457" path="res://scenes/ui/reset/reset.tscn" id="17_e3rdq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fl1j"]
 size = Vector2(89, 12)
@@ -46,7 +47,7 @@ size = Vector2(45, 178)
 position = Vector2(508, 169)
 
 [node name="Player" parent="." instance=ExtResource("1_130bl")]
-position = Vector2(1066, 153)
+position = Vector2(150, 176)
 
 [node name="Background Music" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-30, -176)
@@ -102,7 +103,6 @@ volume_db = -10.0
 max_polyphony = 6
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.05)
@@ -168,6 +168,11 @@ offset_right = -7.0
 z_index = 10
 
 [node name="NextLevelTransition" parent="GUI" instance=ExtResource("12_xcofj")]
+
+[node name="Reset" parent="GUI" instance=ExtResource("17_e3rdq")]
+theme_type_variation = &"FlatButton"
+text = "
+"
 
 [connection signal="body_entered" from="Ground/Bridge Collision" to="Ground/Bridge Collision" method="_explode_bridge"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_killzone_entered"]

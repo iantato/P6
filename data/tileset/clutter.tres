@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://dw0bf48df68rs"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://dw0bf48df68rs"]
 
 [ext_resource type="Texture2D" uid="uid://bj8aq8xd64rxx" path="res://assets/tiles/Fence.png" id="1_t1jta"]
 [ext_resource type="Texture2D" uid="uid://bii83koj2n2i" path="res://assets/tiles/Bridge Pillar 1.png" id="2_6unik"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bl0mvl75agyt7" path="res://assets/tiles/Fallen Bark.png" id="3_nb0y8"]
 [ext_resource type="Texture2D" uid="uid://d2cpid106o3s4" path="res://assets/tiles/Foliage.png" id="3_yk8qq"]
 [ext_resource type="Texture2D" uid="uid://744kbc4ek03l" path="res://assets/tiles/Laser.png" id="6_jco8u"]
+[ext_resource type="Texture2D" uid="uid://8hp4qq74bsnm" path="res://assets/tiles/Crystal.png" id="7_f8qdr"]
+[ext_resource type="Texture2D" uid="uid://ct7delhnw8xs6" path="res://assets/tiles/Ruins Foliage 1.png" id="8_l5kh0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26c2s"]
 texture = ExtResource("1_t1jta")
@@ -68,6 +70,21 @@ texture = ExtResource("6_jco8u")
 0:5/0 = 0
 1:5/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cqv5t"]
+texture = ExtResource("7_f8qdr")
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ybmkl"]
+texture = ExtResource("8_l5kh0")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_3jg74")
@@ -76,3 +93,5 @@ sources/2 = SubResource("TileSetAtlasSource_sdb4m")
 sources/3 = SubResource("TileSetAtlasSource_h8d7x")
 sources/0 = SubResource("TileSetAtlasSource_26c2s")
 sources/5 = SubResource("TileSetAtlasSource_vlb7h")
+sources/6 = SubResource("TileSetAtlasSource_cqv5t")
+sources/7 = SubResource("TileSetAtlasSource_ybmkl")

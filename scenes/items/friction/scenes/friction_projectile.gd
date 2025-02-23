@@ -26,8 +26,12 @@ var material_type: FrictionMaterial
 var material_info 
 var tilemap: TileMapLayer
 	
+@onready var material_sprite = [$Tar, $Honey, $Ice, $Oil]
+
 func _ready() -> void:
 	$Timer.start()
+	for item in material_sprite:
+		item.visible = false
 	
 func _on_timer_timeout() -> void:
 	queue_free()
@@ -36,7 +40,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer and body.name == "Friction":
 		tilemap = body
 		material_info = MaterialAtlas.get(material_type)
-		print(tilemap)
 		spread_tiles(global_position)
 		queue_free()
 		
@@ -64,4 +67,8 @@ func change_cell(pos: Vector2i, x: int):
 
 	if tilemap.get_cell_source_id(pos) != -1 and pos not in full_blocks:
 		tilemap.set_cell(pos, target_source_id, target_atlas_coords[x])
+func change_material(material_1: FrictionMaterial):
+	material_type = material_1
+	material_sprite[material_1].visible = true
+	
 	

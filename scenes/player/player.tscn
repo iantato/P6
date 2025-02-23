@@ -187,8 +187,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cm0r5"]
-radius = 4.25
-height = 25.0
+radius = 5.0
+height = 22.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yy3qs"]
 size = Vector2(8.5, 18.5)
@@ -203,7 +203,7 @@ animation = &"run"
 autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_cm0r5")
 
 [node name="PlayerArea2D" type="Area2D" parent="."]

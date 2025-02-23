@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://df24ls5qc4b2f" path="res://assets/background/Ruins.png" id="3_bne0f"]
 [ext_resource type="TileSet" uid="uid://dw0bf48df68rs" path="res://data/tileset/clutter.tres" id="3_mja58"]
 [ext_resource type="PackedScene" uid="uid://c2oe5gloan8g3" path="res://scenes/blocks/codex/codex_block.tscn" id="4_1orwt"]
-[ext_resource type="TileSet" uid="uid://cvt2m5esp0cu7" path="res://data/tileset/friction.tres" id="4_hxu24"]
+[ext_resource type="TileSet" uid="uid://c14mlaup73w4p" path="res://data/tileset/friction.tres" id="4_hxu24"]
 [ext_resource type="PackedScene" uid="uid://570o7ljhdp2x" path="res://scenes/blocks/boulder/boulder.tscn" id="6_pxy8l"]
 [ext_resource type="PackedScene" uid="uid://bpfed70ay6qvw" path="res://scenes/ui/hotbar/scenes/toolbelt.tscn" id="7_cctug"]
 [ext_resource type="PackedScene" uid="uid://b0yu6jtf5d28k" path="res://scenes/ui/inventory/scenes/inventory_ui.tscn" id="8_tfh0p"]

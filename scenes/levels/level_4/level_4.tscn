@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://bexdpvwcgsjpj"]
+[gd_scene load_steps=3 format=3 uid="uid://bexdpvwcgsjpj"]
+
+[ext_resource type="PackedScene" uid="uid://dn6ydr6vmxshc" path="res://scenes/transition/next_level/next_level.tscn" id="1_5d6lv"]
+[ext_resource type="Script" path="res://scenes/levels/level_4/scripts/level_4.gd" id="1_y5rvr"]
 
 [node name="Level4" type="Node2D"]
+script = ExtResource("1_y5rvr")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="NextLevelTransition" parent="GUI" instance=ExtResource("1_5d6lv")]

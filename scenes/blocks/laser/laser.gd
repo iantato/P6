@@ -64,14 +64,15 @@ func initialize_killzone(start_tile: Vector2i, cells: Array):
 
 
 func _on_kill_zone_body_entered(body: Node2D) -> void:
-	if body.is_in_group("respawnable") and killzone.visible:
+	if body.name == "Player" and killzone.visible:
 		body.reset_to_checkpoint()
-
-
+		get_parent().get_parent().get_node("Boulder").reset_to_checkpoint()
+		
 func _on_timer_timeout() -> void:
 	shoot(cells_to_change)
 	killzone.visible = true
 	off_timer.start()
+	
 func _on_off_timer_timeout() -> void:
 	unshoot(cells_to_change)
 	killzone.visible = false

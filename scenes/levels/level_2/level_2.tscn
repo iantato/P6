@@ -67,7 +67,7 @@ script = ExtResource("1_3xo7v")
 position = Vector2(183, 136)
 
 [node name="Player" parent="." instance=ExtResource("3_gif5w")]
-position = Vector2(1460, 3)
+position = Vector2(98, 144)
 
 [node name="Background Music" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-30, -175)
@@ -150,6 +150,7 @@ texture = ExtResource("10_0564j")
 centered = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Hotbar" parent="GUI" instance=ExtResource("8_y4alm")]
 offset_left = -71.0

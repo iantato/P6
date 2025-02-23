@@ -19,11 +19,11 @@ tile_set = ExtResource("1_wnxxo")
 
 [node name="Laser" parent="Ground" instance=ExtResource("10_1mb2m")]
 position = Vector2(123, -106)
-interval = 5.0
+off_time = 4.0
 
 [node name="Laser2" parent="Ground" instance=ExtResource("10_1mb2m")]
-position = Vector2(10, -114)
-interval = 5.0
+position = Vector2(54, -112)
+on_time = 4.0
 
 [node name="Player" parent="." instance=ExtResource("1_q8aix")]
 

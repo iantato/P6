@@ -10,9 +10,9 @@
 [ext_resource type="Script" path="res://scenes/player/hotbar.gd" id="7_35vjl"]
 [ext_resource type="Script" path="res://scenes/items/base_items/grimoire.gd" id="8_wm7vt"]
 [ext_resource type="Resource" uid="uid://03fla2su4dl6" path="res://scenes/items/speed/speed_grimoire.tres" id="9_f1gb3"]
-[ext_resource type="Resource" uid="uid://c34ykn1aggait" path="res://scenes/items/projectile/data/projectile_grimoire.tres" id="11_b22n8"]
+[ext_resource type="Resource" uid="uid://b45hnhene70pm" path="res://scenes/items/projectile/data/projectile_grimoire.tres" id="11_b22n8"]
 [ext_resource type="Resource" uid="uid://dqxnu7xslfahg" path="res://scenes/items/gravity/data/gravity_grimoire.tres" id="12_oh064"]
-[ext_resource type="Resource" path="res://scenes/items/friction/friction_grimoire.tres" id="13_geg8f"]
+[ext_resource type="Resource" uid="uid://crb0jfqmdtgsd" path="res://scenes/items/friction/friction_grimoire.tres" id="13_geg8f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jcqb"]
 atlas = ExtResource("3_ga2k2")

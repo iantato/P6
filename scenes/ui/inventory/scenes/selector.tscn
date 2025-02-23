@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfcq6hjjqllq5"]
 
 [ext_resource type="Script" path="res://scenes/ui/inventory/scripts/selector.gd" id="1_i47xk"]
-[ext_resource type="Texture2D" uid="uid://feavsqnfb07x" path="res://assets/GUI/Book Hotbar Buttons/Hotbar Buttons.png" id="2_uuwqv"]
+[ext_resource type="Texture2D" uid="uid://dqfnh1jklurs" path="res://assets/gui/buttons/Hotbar Buttons.png" id="2_m8fq0"]
 
 [node name="Selector" type="Control"]
 z_index = 100
@@ -19,14 +19,18 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -35.0
+offset_right = 69.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="HotbarButtons" type="Sprite2D" parent="."]
 position = Vector2(160, 90)
 scale = Vector2(5, 5)
-texture = ExtResource("2_uuwqv")
+texture = ExtResource("2_m8fq0")
 
 [node name="Slot1" type="Button" parent="."]
 layout_mode = 0

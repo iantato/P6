@@ -129,7 +129,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oo54q")
+}],
+"loop": false,
+"name": &"cast_1",
+"speed": 5.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lrroa")
 }, {
@@ -149,7 +154,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_nj36d")
 }],
 "loop": true,
-"name": &"cast_1",
+"name": &"cast_loop",
 "speed": 5.0
 }, {
 "frames": [{

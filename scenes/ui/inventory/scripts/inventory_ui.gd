@@ -49,6 +49,8 @@ func _on_green_button_pressed() -> void:
 	selected = green_selected
 
 func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_cancel") and is_open:
+		open_inventory(Globals.player.inventory.items, true)
 	if Input.is_action_just_pressed("inventory"):
 		open_inventory(Globals.player.inventory.items, true)
 		

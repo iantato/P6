@@ -37,87 +37,92 @@ var tilemap: TileMapLayer
 
 
 func _ready() -> void:
-	if Globals.player != null:
-		queue_free()  # Delete this duplicate instance if another already exists
-		return
-	checkpoint_position = global_position
-	Globals.player = self
-	tilemap = get_parent().get_node("Friction")
+    if Globals.player != null:
+        queue_free()  # Delete this duplicate instance if another already exists
+        return
+    checkpoint_position = global_position
+    Globals.player = self
+    tilemap = get_parent().get_node("Friction")
 
 func _physics_process(delta: float) -> void:
-	handle_normal_movement(delta)  # Handle normal movement
+    handle_normal_movement(delta)  # Handle normal movement
 
-	if is_on_floor():
-		current_friction = get_tile_friction()
-	apply_wind(delta)
-	move_and_slide()
+    if is_on_floor():
+        current_friction = get_tile_friction()
+    apply_wind(delta)
+    move_and_slide()
 
 func handle_normal_movement(delta: float):
+    var new_animation = animated_sprite.animation
+    if is_on_floor():
+        if velocity.x != 0:
+            new_animation = "run"
+        elif new_animation != "cast_loop":  # Prevent override when casting
+            new_animation = "idle"
+    elif velocity.y != 0 and not is_on_floor():
+        new_animation = "jump"
+    if Input.is_action_pressed("use_item") and $Hotbar.hotbar[$Hotbar.selected_slot] and animated_sprite.animation != "cast_loop":
+        new_animation = "cast_1"
 
-	var new_animation = "idle"
-	if velocity.x != 0 and is_on_floor():
-		new_animation = "run"
-	if velocity.y != 0 and not is_on_floor():
-		new_animation = "jump"
-	if Input.is_action_pressed("use_item") and $Hotbar.hotbar[$Hotbar.selected_slot]:
-		new_animation = "cast_1"
+    if animated_sprite.animation != new_animation:
+        animated_sprite.play(new_animation)
+        if new_animation == "cast_1":
+            await animated_sprite.animation_finished
+            animated_sprite.play("cast_loop")
+    if not is_on_floor():
+        velocity.y += gravity * delta
+    if not movement_enabled:
+        return
+    # Jump handling (only if on the floor)
+    if Input.is_action_just_pressed("jump") and is_on_floor():
+        velocity.y = JUMP_VELOCITY
 
-	if animated_sprite.animation != new_animation:
-		animated_sprite.play(new_animation)
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	if not movement_enabled:
-		return
-	# Jump handling (only if on the floor)
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+    # Horizontal movement
+    var direction = Input.get_axis("ui_left", "ui_right")
+    var target_velocity = direction * current_speed
 
-	# Horizontal movement
-	var direction = Input.get_axis("ui_left", "ui_right")
-	var target_velocity = direction * current_speed
-
-	if direction != 0:
-		velocity.x = move_toward(velocity.x, target_velocity, acceleration * delta)
-		animated_sprite.flip_h = direction < 0  # Now works properly
-		sprite_direction = direction > 0
-		area.position.x = AREA_OFFSET_X * direction
-		var grimoires = get_tree().get_nodes_in_group("grimoire")
-		for grimoire in grimoires:
-			grimoire.position.x = 0 if direction == 1 else -28
-			grimoire.flip(direction)
-	else:
-		velocity.x = move_toward(velocity.x, 0, current_friction * delta)
+    if direction != 0:
+        velocity.x = move_toward(velocity.x, target_velocity, acceleration * delta)
+        animated_sprite.flip_h = direction < 0  # Now works properly
+        sprite_direction = direction > 0
+        area.position.x = AREA_OFFSET_X * direction
+        var grimoires = get_tree().get_nodes_in_group("grimoire")
+        for grimoire in grimoires:
+            grimoire.position.x = 0 if direction == 1 else -28
+            grimoire.flip(direction)
+    else:
+        velocity.x = move_toward(velocity.x, 0, current_friction * delta)
 
 
 
 func get_tile_friction() -> float:
-	if not tilemap:
-		return default_friction
+    if not tilemap:
+        return default_friction
 
-	var local_pos = tilemap.to_local(global_position)
-	var tile_pos_less = tilemap.local_to_map(local_pos)
-	var tile_pos = tile_pos_less + Vector2i(0, 1)
-	var tile_data = tilemap.get_cell_tile_data(tile_pos)
-	if tile_data:
-		var friction = tile_data.get_custom_data("friction")
-		if friction > default_friction:
-			current_speed = BASE_SPEED * (1.0/(1.0+(friction/100)))
-			return friction
-		if friction:
-			current_speed = BASE_SPEED
-			return friction
+    var local_pos = tilemap.to_local(global_position)
+    var tile_pos_less = tilemap.local_to_map(local_pos)
+    var tile_pos = tile_pos_less + Vector2i(0, 1)
+    var tile_data = tilemap.get_cell_tile_data(tile_pos)
+    if tile_data:
+        var friction = tile_data.get_custom_data("friction")
+        if friction > default_friction:
+            current_speed = BASE_SPEED * (1.0/(1.0+(friction/100)))
+            return friction
+        if friction:
+            current_speed = BASE_SPEED
+            return friction
 
-	current_speed = BASE_SPEED
-	return default_friction
-	
+    current_speed = BASE_SPEED
+    return default_friction
+    
 func reset_to_checkpoint():
-	global_position = checkpoint_position
-	velocity = Vector2.ZERO
+    global_position = checkpoint_position
+    velocity = Vector2.ZERO
 
 func toggle_movement():
-	movement_enabled = !movement_enabled
-	if not movement_enabled:
-		velocity.x = 0
+    movement_enabled = !movement_enabled
+    if not movement_enabled:
+        velocity.x = 0
 
 func apply_wind(delta):
-	velocity += wind_force * delta
+    velocity += wind_force * delta

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlyj38hc5cgbq"]
+[gd_scene load_steps=6 format=3 uid="uid://dlyj38hc5cgbq"]
 
 [ext_resource type="Script" path="res://scenes/items/base_items/base_grimorie_inventory.gd" id="1_ob21m"]
 [ext_resource type="Texture2D" uid="uid://65w1br3fctej" path="res://scenes/items/intertia/textures/Opened Book Locked.png" id="2_q5d0j"]
@@ -6,21 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cvkbrrp4jsmqj" path="res://scenes/items/intertia/textures/Closed Book.png" id="4_c3dgh"]
 [ext_resource type="Texture2D" uid="uid://bkxpuo1qqe26w" path="res://scenes/items/intertia/textures/Title.png" id="5_ydqjj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbxs8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7a74b"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_21wno"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r7mmw"]
-
 [node name="Inertia" type="Button"]
 offset_right = 63.0
 offset_bottom = 31.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vbxs8")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_7a74b")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_21wno")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_r7mmw")
+theme_type_variation = &"FlatButton"
 script = ExtResource("1_ob21m")
 type = 4
 

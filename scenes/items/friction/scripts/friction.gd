@@ -1,4 +1,5 @@
 extends Grimoire
+class_name FrictionGrimoire
 
 @export var projectile_scene: PackedScene
 @export var projectile_speed: float = 500

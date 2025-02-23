@@ -97,11 +97,10 @@ func get_tile_friction() -> float:
 		return default_friction
 
 	var local_pos = tilemap.to_local(global_position)
-	var player_pos = tilemap.local_to_map(local_pos)
-	var tile_pos = player_pos + Vector2i(0, 1)
+	var tile_pos = tilemap.local_to_map(local_pos)
 	var tile_data = tilemap.get_cell_tile_data(tile_pos)
 	if tile_data:
-		var friction = tile_data.get_custom_data("Friction")
+		var friction = tile_data.get_custom_data("friction")
 		if friction > default_friction:
 			current_speed = BASE_SPEED * (1.0/(1.0+(friction/100)))
 			return friction

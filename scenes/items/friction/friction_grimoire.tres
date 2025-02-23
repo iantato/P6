@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="FrictionGrimoire" load_steps=5 format=3 uid="uid://crb0jfqmdtgsd"]
+[gd_resource type="Resource" script_class="FrictionGrimoire" load_steps=6 format=3 uid="uid://crb0jfqmdtgsd"]
 
+[ext_resource type="PackedScene" uid="uid://bykko5yfvc6d4" path="res://scenes/items/projectile/arrow.tscn" id="1_edrwj"]
 [ext_resource type="Texture2D" uid="uid://4t8u8qq5ivuw" path="res://scenes/items/friction/texture/Friction.png" id="1_hsqs2"]
 [ext_resource type="PackedScene" uid="uid://dklwajh8q6vo1" path="res://scenes/items/friction/scenes/friction_projectile.tscn" id="2_0cj4k"]
 [ext_resource type="PackedScene" uid="uid://fan7lv05wat" path="res://scenes/items/friction/scenes/friction_grimoire.tscn" id="3_46ret"]
@@ -8,12 +9,13 @@
 [resource]
 script = ExtResource("3_soiha")
 projectile_scene = ExtResource("2_0cj4k")
+arrow_scene = ExtResource("1_edrwj")
 projectile_speed = 100.0
 material = 2
 item_name = "Friction Grimoire"
 use_type = 1
 type = 1
 toggleable = true
-activate_on_equip = false
+activate_on_equip = true
 hotbar_icon = ExtResource("1_hsqs2")
 scene = ExtResource("3_46ret")

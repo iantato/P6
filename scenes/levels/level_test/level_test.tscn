@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://deq37dhs7gh07"]
+[gd_scene load_steps=8 format=4 uid="uid://deq37dhs7gh07"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_q8aix"]
 [ext_resource type="TileSet" uid="uid://c14mlaup73w4p" path="res://data/tileset/friction.tres" id="2_dypu6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bpfed70ay6qvw" path="res://scenes/ui/hotbar/scenes/toolbelt.tscn" id="4_amjxr"]
 [ext_resource type="PackedScene" uid="uid://b0yu6jtf5d28k" path="res://scenes/ui/inventory/scenes/inventory_ui.tscn" id="5_si1og"]
 [ext_resource type="PackedScene" uid="uid://dn6ydr6vmxshc" path="res://scenes/transition/next_level/next_level.tscn" id="6_wtftn"]
+[ext_resource type="PackedScene" uid="uid://jj2i2n6roque" path="res://scenes/blocks/moving_platform/moving_platform.tscn" id="7_lqlfg"]
 
 [node name="LevelTest" type="Node2D"]
 
@@ -18,7 +19,9 @@ tile_map_data = PackedByteArray("AAD8/wAABAACAAAAAAD9/wAABAACAAAAAAD7/wAABAACAAA
 tile_set = ExtResource("2_dypu6")
 
 [node name="RigidBody2D" parent="." instance=ExtResource("3_dal4k")]
-position = Vector2(37, -38)
+position = Vector2(-73, -71)
+mass = 2.5
+can_sleep = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -30,3 +33,7 @@ offset_right = -7.0
 z_index = 10
 
 [node name="NextLevelTransition" parent="GUI" instance=ExtResource("6_wtftn")]
+
+[node name="AnimatableBody2D" parent="." instance=ExtResource("7_lqlfg")]
+position = Vector2(-78, -39)
+x_offset = 10

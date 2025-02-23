@@ -1,33 +1,18 @@
-[gd_scene load_steps=4 format=4 uid="uid://4lpc2jwx2xj5"]
+[gd_scene load_steps=4 format=4 uid="uid://deq37dhs7gh07"]
 
-<<<<<<< HEAD
-[ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_y1tgv"]
-[ext_resource type="TileSet" uid="uid://cfq7l353w0qu8" path="res://data/tileset/friction.tres" id="2_13r3d"]
-[ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="3_y0wvg"]
-=======
-[ext_resource type="TileSet" uid="uid://c14mlaup73w4p" path="res://data/tileset/friction.tres" id="2_yy670"]
-[ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="5_wor4r"]
-[ext_resource type="PackedScene" uid="uid://570o7ljhdp2x" path="res://scenes/blocks/boulder/boulder.tscn" id="6_cdsrw"]
->>>>>>> 55f942a (Fixed test level and friction tileset)
+[ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_q8aix"]
+[ext_resource type="TileSet" uid="uid://c14mlaup73w4p" path="res://data/tileset/friction.tres" id="2_dypu6"]
+[ext_resource type="PackedScene" uid="uid://570o7ljhdp2x" path="res://scenes/blocks/boulder/boulder.tscn" id="3_dal4k"]
 
 [node name="LevelTest" type="Node2D"]
 
-[node name="RigidBody2D" parent="." instance=ExtResource("6_cdsrw")]
-position = Vector2(128, 71)
-
-[node name="Friction" type="TileMapLayer" parent="."]
-<<<<<<< HEAD
-tile_map_data = PackedByteArray("AAAEAAAAAAAEAAAAAAAFAAAAAAAEAAAAAAAGAAAAAAAEAAAAAAAKAAAAAAAEAAAAAAAEAAIAAAAEAAAAAAAEAAMAAAAEAAAAAAAEAAQAAAAEAAAAAAAFAAQAAAAEAAAAAAAFAAMAAAAEAAAAAAAFAAIAAAAEAAAAAAAGAAIAAAAEAAAAAAAGAAMAAAAEAAAAAAAGAAQAAAAEAAAAAAAGAAUAAAAEAAAAAAAFAAUAAAAEAAAAAAAEAAUAAAAEAAAAAAAEAP3/AAAEAAAAAAAEAPz/AAAEAAAAAAAEAPv/AAAEAAAAAAAEAPr/AAAEAAAAAAAEAPn/AAAEAAAAAAAFAPn/AAAEAAAAAAAFAPr/AAAEAAAAAAAFAPv/AAAEAAAAAAAFAPz/AAAEAAAAAAAFAP3/AAAEAAAAAAAHAAAAAwAEAAAAAAAIAAAAAwAEAAAAAAAJAAAAAwAEAAAAAAABAAAAAgAEAAAAAAACAAAAAgAEAAAAAAADAAAAAgAEAAAAAAD+/wAAAQAEAAAAAAD//wAAAQAEAAAAAAAAAAAAAQAEAAAAAAA=")
-tile_set = ExtResource("2_13r3d")
-
-[node name="Player" parent="." instance=ExtResource("3_y0wvg")]
-position = Vector2(-44, -40)
-=======
-tile_map_data = PackedByteArray("AAAAAAcAAAACAAAAAAABAAcAAAACAAAAAAACAAcAAAACAAAAAAADAAcAAAACAAAAAAAEAAcAAAACAAAAAAAFAAcAAAACAAAAAAAGAAcAAAACAAAAAAAHAAcAAAACAAAAAAAIAAcAAAACAAAAAAAJAAcAAQACAAAAAAAKAAcAAQACAAAAAAALAAcAAQACAAAAAAAMAAcAAQACAAAAAAANAAcAAQACAAAAAAAOAAcAAQACAAAAAAAPAAcAAQACAAAAAAAQAAcAAgACAAAAAAARAAcAAgACAAAAAAASAAcAAgACAAAAAAATAAcAAgACAAAAAAAUAAcAAgACAAAAAAAVAAcAAgACAAAAAAAWAAcAAgACAAAAAAAXAAcABAACAAAAAAAYAAcABAACAAAAAAAZAAcABAACAAAAAAAaAAcABAACAAAAAAAbAAcABAACAAAAAAAcAAcABAACAAAAAAA=")
-tile_set = ExtResource("2_yy670")
-
-[node name="Player" parent="." instance=ExtResource("5_wor4r")]
-position = Vector2(108, 78)
->>>>>>> 55f942a (Fixed test level and friction tileset)
+[node name="Player" parent="." instance=ExtResource("1_q8aix")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Friction" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD8/wAABAACAAAAAAD9/wAABAACAAAAAAD7/wAABAACAAAAAAD6/wAABAACAAAAAAD5/wAABAACAAAAAAD+/wAABQACAAAAAAD//wAABQACAAAAAAAAAAAABQACAAAAAAABAAAABQACAAAAAAACAAAABQACAAAAAAADAAAABgACAAAAAAAEAAAABgACAAAAAAAFAAAABgACAAAAAAAGAAAABgACAAAAAAAHAAAABgACAAAAAAAIAAAABgACAAAAAAAJAAAABwACAAAAAAAMAAAABwACAAAAAAAKAAAABwACAAAAAAALAAAABwACAAAAAAA=")
+tile_set = ExtResource("2_dypu6")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("3_dal4k")]
+position = Vector2(37, -38)

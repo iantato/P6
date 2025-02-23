@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 [gd_scene load_steps=19 format=4 uid="uid://cpo8st6o6xr7u"]
+=======
+<<<<<<< HEAD
+[gd_scene load_steps=26 format=4 uid="uid://cpo8st6o6xr7u"]
+=======
+[gd_scene load_steps=19 format=4 uid="uid://cpo8st6o6xr7u"]
+>>>>>>> e45954d (experimenting with the friction grimoire)
+>>>>>>> 55f942a (Fixed test level and friction tileset)
 
 [ext_resource type="Script" path="res://scenes/levels/level_2/scripts/level_2.gd" id="1_3xo7v"]
 [ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_qijtq"]
@@ -12,9 +20,22 @@
 [ext_resource type="Texture2D" uid="uid://bjkhdfjjrxsn" path="res://assets/particles/Gravity Particle 3.png" id="8_ogt78"]
 [ext_resource type="PackedScene" uid="uid://bpfed70ay6qvw" path="res://scenes/ui/hotbar/scenes/toolbelt.tscn" id="8_y4alm"]
 [ext_resource type="PackedScene" uid="uid://b0yu6jtf5d28k" path="res://scenes/ui/inventory/scenes/inventory_ui.tscn" id="9_orfba"]
+<<<<<<< HEAD
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ic3d"]
 size = Vector2(27, 14)
+=======
+<<<<<<< HEAD
+[ext_resource type="Texture2D" uid="uid://cwh7l8rlp2qrf" path="res://assets/background/Trees.png" id="10_0564j"]
+[ext_resource type="PackedScene" uid="uid://c2oe5gloan8g3" path="res://scenes/blocks/codex/codex_block.tscn" id="13_uygpv"]
+[ext_resource type="Script" path="res://scenes/levels/level_2/scripts/killzone.gd" id="14_ouqpj"]
+[ext_resource type="PackedScene" uid="uid://570o7ljhdp2x" path="res://scenes/blocks/boulder/boulder.tscn" id="16_so55p"]
+=======
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ic3d"]
+size = Vector2(27, 14)
+>>>>>>> e45954d (experimenting with the friction grimoire)
+>>>>>>> 55f942a (Fixed test level and friction tileset)
 
 [sub_resource type="Gradient" id="Gradient_ml3jk"]
 offsets = PackedFloat32Array(0.236559, 0.802867)

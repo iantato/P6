@@ -3,7 +3,7 @@ class_name Hotbar
 
 @export var hotbar: Array[Grimoire] = [null, null, null]
 @export var max_size := 3
-@export var selected_slot := 0
+@export var selected_slot := -1
 
 var hotbar_keys = {
 	"hotbar_1": 0,
@@ -38,13 +38,10 @@ func _input(event: InputEvent) -> void:
 
 	for key in hotbar_keys.keys():
 		if event.is_action_released(key):
-			print(hotbar)
 			validate_slot(hotbar_keys[key])
 
 func validate_slot(new_slot):
-	if hotbar[new_slot] == null:
-		return
-	if selected_slot != new_slot and hotbar[new_slot] != null:
+	if selected_slot != new_slot and hotbar[new_slot] != null and hotbar[selected_slot] != null:
 		hotbar[selected_slot].clear(Globals.player)
 		
 	if hotbar[new_slot] != null and hotbar[new_slot].activate_on_equip:
@@ -91,15 +88,15 @@ func equip_item(item: Grimoire, slot: int):
 		var temp_grimoire = hotbar[slot]
 		hotbar[hotbar.find(item)] = temp_grimoire
 	elif hotbar[slot] != null:
-		print(2)
 		emit_signal("item_replaced", hotbar[slot])
 	elif hotbar[slot] == null and hotbar.has(item):
 		emit_signal("item_slot_replaced", null, hotbar.find(item))
 		hotbar[hotbar.find(item)] = null
 	
-	if hotbar[selected_slot] == null:
-		select_slot(slot)
 	hotbar[slot] = item
+	if hotbar[selected_slot] == null:
+		validate_slot(slot)
+	
 
 func select_slot(slot: int):
 	if slot > max_size - 1:

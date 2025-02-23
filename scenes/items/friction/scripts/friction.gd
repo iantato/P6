@@ -54,6 +54,5 @@ func toggle():
 		
 func activate(player: Player):
 	if !arrow:
-		print("TEST")
 		arrow = arrow_scene.instantiate()
 	player.get_parent().add_child(arrow)

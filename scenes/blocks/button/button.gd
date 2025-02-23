@@ -8,7 +8,6 @@ func _ready():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body and body.name != $ButtonBody.name and body is not TileMapLayer:
-		print(body)
 		$ButtonBody/ButtonSprite.play("press_down")
 		emit_signal("button_activated")
 

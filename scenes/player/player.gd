@@ -38,7 +38,6 @@ var tilemap: TileMapLayer
 
 func _ready() -> void:
 	if Globals.player != null:
-		get_parent().add_child(Globals.player)
 		queue_free()  # Delete this duplicate instance if another already exists
 		return
 	checkpoint_position = global_position

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://deq37dhs7gh07"]
+[gd_scene load_steps=9 format=4 uid="uid://deq37dhs7gh07"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_q8aix"]
 [ext_resource type="TileSet" uid="uid://c14mlaup73w4p" path="res://data/tileset/friction.tres" id="2_dypu6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b0yu6jtf5d28k" path="res://scenes/ui/inventory/scenes/inventory_ui.tscn" id="5_si1og"]
 [ext_resource type="PackedScene" uid="uid://dn6ydr6vmxshc" path="res://scenes/transition/next_level/next_level.tscn" id="6_wtftn"]
 [ext_resource type="PackedScene" uid="uid://jj2i2n6roque" path="res://scenes/blocks/moving_platform/moving_platform.tscn" id="7_lqlfg"]
+[ext_resource type="PackedScene" uid="uid://clpvhlmgxhpo0" path="res://scenes/blocks/button/button.tscn" id="8_nnum4"]
 
 [node name="LevelTest" type="Node2D"]
 
@@ -36,3 +37,6 @@ z_index = 10
 [node name="AnimatableBody2D" parent="." instance=ExtResource("7_lqlfg")]
 position = Vector2(-78, -39)
 x_offset = 10
+
+[node name="Button" parent="." instance=ExtResource("8_nnum4")]
+position = Vector2(35, 0)

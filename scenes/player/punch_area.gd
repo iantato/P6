@@ -17,7 +17,7 @@ func handle_input():
 		perform_punch()
 		get_parent().toggle_movement()
 	elif Input.is_action_pressed("punch"):
-		punch_strength += 1
+		punch_strength += 3
 
 
 # Punch mechanic
@@ -36,7 +36,5 @@ func perform_punch():
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("punchable"):
 		if body is RigidBody2D:
-			print("TEST")
-	  # Assuming Player has a 'sprite_direction' boolean
 			var direction = Vector2.RIGHT if get_parent().sprite_direction else Vector2.LEFT
-			body.apply_impulse(direction * min(punch_strength, 500))  # Removed unnecessary * -1
+			body.apply_impulse(direction * min(punch_strength, 500) + (Vector2.UP * 15))  

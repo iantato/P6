@@ -40,6 +40,8 @@ func _input(event: InputEvent) -> void:
 			validate_slot(hotbar_keys[key])
 
 func validate_slot(new_slot):
+	if hotbar[new_slot] == null:
+		return
 	if selected_slot != new_slot and hotbar[new_slot] != null:
 		hotbar[selected_slot].clear(Globals.player)
 		

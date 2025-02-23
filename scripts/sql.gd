@@ -36,4 +36,4 @@ func get_player_id(name: String) -> void:
 func get_time(id: int) -> float:
 	var query = "SELECT time FROM players WHERE id = %d" % [id]
 	db.query(query)
-	return db.get_query_result()
+	return db.get_query_result()[0]['time']

@@ -26,7 +26,6 @@ func use(player: Player, delta: float):
 	projectile.global_position = origin_position + direction * 20
   # Apply velocity to projectile
 	var charged_projectile_speed = projectile_speed * delta
-	print(projectile_speed)
 	projectile.linear_velocity = direction * charged_projectile_speed
 
 func clear(player: Player):
@@ -35,6 +34,5 @@ func clear(player: Player):
 
 func activate(player: Player):
 	if !arrow:
-		print("TEST")
 		arrow = arrow_scene.instantiate()
 	player.get_parent().add_child(arrow)

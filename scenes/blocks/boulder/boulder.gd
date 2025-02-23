@@ -2,9 +2,11 @@ extends RigidBody2D
 var default_friction = 0.1
 var current_friction = default_friction
 var tilemap: TileMapLayer
+var original_pos: Vector2
 
 func _ready():
 	tilemap = get_parent().get_node("Friction")
+	original_pos = global_position
 
 func _physics_process(delta):
 	current_friction = get_tile_friction()
@@ -29,4 +31,4 @@ func get_tile_friction() -> float:
 	return default_friction
 
 func reset_to_checkpoint():
-	global_position = Globals.player.checkpoint_position
+	global_position = original_pos

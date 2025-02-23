@@ -49,15 +49,12 @@ func spread_tiles(center_pos: Vector2):
 	# Loop symmetrically around the center tile
 	for x in range(-spread_radius, spread_radius + 1):
 		var pos = center_tile_pos + Vector2i(x, 1)
-		print("changing")
 		change_cell(pos, x + 1)  # Change the center and all spread positions
 
 func change_cell(pos: Vector2i, x: int):
 	# Get the current tile's source ID
 	var current_source_id = tilemap.get_cell_source_id(pos)
-	print(current_source_id)
 	var current_atlas_coords = tilemap.get_cell_atlas_coords(pos)
-	print(current_atlas_coords)
 
 
 	# Check if the tile is different from the target material before changing
@@ -67,5 +64,4 @@ func change_cell(pos: Vector2i, x: int):
 
 	if tilemap.get_cell_source_id(pos) != -1 and pos not in full_blocks:
 		tilemap.set_cell(pos, target_source_id, target_atlas_coords[x])
-		print("changed cell")
 	

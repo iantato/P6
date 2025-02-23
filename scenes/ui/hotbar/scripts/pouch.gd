@@ -9,7 +9,6 @@ func _ready() -> void:
   overlay.visible = false
 
 func equip(item: Grimoire):
-  print(item, pouch_no)
   grimoire.texture = item.hotbar_icon 
   self.visible = true
 

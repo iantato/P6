@@ -12,7 +12,6 @@ func _ready():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		print(force)
 		body.wind_force = force
 
 

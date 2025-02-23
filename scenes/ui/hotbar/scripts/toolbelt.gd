@@ -9,12 +9,10 @@ func _ready() -> void:
 	pouches[selected].select()
 
 func equip_item(grimoire: Grimoire, slot: int):
-	print(slot)
 	pouches[slot].equip(grimoire)
 	
 func change_item(grimoire: Grimoire, slot: int):
 	if grimoire == null:
-		print(slot)
 		pouches[slot].unequip()
 		return
 	pouches[slot].equip(grimoire)

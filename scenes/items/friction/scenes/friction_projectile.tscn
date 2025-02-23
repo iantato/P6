@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dklwajh8q6vo1"]
+
+[ext_resource type="Script" path="res://scenes/items/friction/scenes/friction_projectile.gd" id="1_0cpww"]
+[ext_resource type="Texture2D" uid="uid://btsft5074o3r" path="res://scenes/items/friction/texture/Closed Book.png" id="1_io8py"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6g0a"]
+radius = 5.0
+
+[node name="Projectile" type="RigidBody2D"]
+script = ExtResource("1_0cpww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o6g0a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_io8py")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

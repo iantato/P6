@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cb1a74p57g37t"]
+[gd_scene load_steps=25 format=4 uid="uid://cb1a74p57g37t"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_130bl"]
 [ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_bceuv"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scenes/levels/level_1/scripts/killzone.gd" id="13_pb00n"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/scripts/next_level.gd" id="14_dvdfd"]
 [ext_resource type="PackedScene" uid="uid://c1orgu2lvn457" path="res://scenes/ui/reset/reset.tscn" id="17_e3rdq"]
+[ext_resource type="PackedScene" uid="uid://cue4a06scd4cs" path="res://scenes/ui/timer/timer.tscn" id="18_3e640"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fl1j"]
 size = Vector2(89, 12)
@@ -60,7 +61,7 @@ parameters/looping = true
 position = Vector2(0, -1)
 offset = Vector2(0, -80)
 zoom = Vector2(0.8, 0.8)
-limit_left = 0
+limit_left = 1
 
 [node name="Clutter" type="TileMapLayer" parent="."]
 z_index = 1
@@ -173,6 +174,8 @@ z_index = 10
 theme_type_variation = &"FlatButton"
 text = "
 "
+
+[node name="Timer" parent="GUI" instance=ExtResource("18_3e640")]
 
 [connection signal="body_entered" from="Ground/Bridge Collision" to="Ground/Bridge Collision" method="_explode_bridge"]
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_killzone_entered"]

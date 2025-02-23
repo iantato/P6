@@ -12,6 +12,17 @@ var scenes : Dictionary = {
 	2: "res://scenes/levels/level_3/level_3.tscn"
 }
 
+func from_prev_level(current_level: int = Globals.current_level) -> void:
+	var label: Label = get_node("Label")
+	label.text = texts[current_level]
+	
+	self.color.a = 255
+	label.label_settings.font_color.a = 255
+	
+	var animation: AnimationPlayer = get_node("AnimationPlayer")
+	animation.play("fade_out")
+	await get_tree().create_timer(0.5).timeout
+
 func to_next_level(current_level: int = Globals.current_level):
 	var label: Label = get_node("Label")
 	label.text = texts[current_level]

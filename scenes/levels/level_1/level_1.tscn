@@ -46,7 +46,7 @@ size = Vector2(45, 178)
 position = Vector2(508, 169)
 
 [node name="Player" parent="." instance=ExtResource("1_130bl")]
-position = Vector2(100, 174)
+position = Vector2(39, 175)
 
 [node name="Background Music" type="AudioStreamPlayer2D" parent="Player"]
 position = Vector2(-30, -176)
@@ -102,7 +102,6 @@ volume_db = -10.0
 max_polyphony = 6
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.05)
@@ -135,7 +134,6 @@ offset_right = -7.0
 z_index = 10
 
 [node name="NextLevelTransition" parent="GUI" instance=ExtResource("12_xcofj")]
-mouse_filter = 2
 
 [node name="Leaves" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_j8hjn")

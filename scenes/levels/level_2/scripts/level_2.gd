@@ -3,7 +3,8 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var transition = get_node("GUI/NextLevelTransition")
-	transition.color.a = 255
+	transition.from_prev_level()
+	
 	Globals.player.gravity = Globals.player.BASE_GRAVITY * 0.5
 
 

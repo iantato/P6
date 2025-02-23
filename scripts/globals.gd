@@ -6,6 +6,7 @@ signal hotbar_item_replaced(grimoire: Grimoire)
 signal hotbar_selected_slot_changed(slot: int)
 # Player instance
 var player: Node = null
+var current_level: int = 0
 
 # Time tracking variables
 var level_times: Dictionary = {}  # Stores time spent in each level

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwh7l8rlp2qrf"
-path="res://.godot/imported/Trees.png-8a5ebcfe3b840f131cd0807436678e35.ctex"
+uid="uid://bntxx23jo2lrt"
+path="res://.godot/imported/Honey Bricks.png-ff3ac0868a2c20c693ae23e4a3b9deb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/Trees.png"
-dest_files=["res://.godot/imported/Trees.png-8a5ebcfe3b840f131cd0807436678e35.ctex"]
+source_file="res://assets/tiles/Honey Bricks.png"
+dest_files=["res://.godot/imported/Honey Bricks.png-ff3ac0868a2c20c693ae23e4a3b9deb0.ctex"]
 
 [params]
 

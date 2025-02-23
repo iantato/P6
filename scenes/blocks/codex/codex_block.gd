@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-@onready var label: Label = $Label
 var player_inside: bool = false
 var player = null
 

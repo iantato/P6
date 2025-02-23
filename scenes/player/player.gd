@@ -32,7 +32,6 @@ var tilemap: TileMapLayer
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D  # Fixed reference
 @onready var area: Area2D = $PlayerArea2D
-@onready var inventory_ui: Control = $InventoryUI
 @onready var inventory: Inventory = $Inventory
 
 
@@ -43,7 +42,7 @@ func _ready() -> void:
 	checkpoint_position = global_position
 	print(checkpoint_position)
 	Globals.player = self
-	tilemap = get_parent().get_node("Ground TileMap")
+	tilemap = get_parent().get_node("Friction")
 	add_child(inventory)
 
 

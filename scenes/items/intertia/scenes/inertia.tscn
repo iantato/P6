@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m0toa"]
 
-[node name="Inertia" type="Node2D"]
+[node name="Inertia2" type="Node2D"]
 script = ExtResource("1_st3e4")
 
 [node name="AOE" type="Area2D" parent="."]

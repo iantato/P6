@@ -10,7 +10,6 @@ func _ready() -> void:
 func _process(delta):
 	if player_inside and Input.is_action_just_pressed("interact"):
 		player.checkpoint_position = global_position
-		player.toggle_movement()
 
 func _on_area_2d_body_entered(body:Node2D) -> void:
 	if body.name == "Player":

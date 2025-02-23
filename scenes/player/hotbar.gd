@@ -27,8 +27,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("use_item"):
+		Globals.player.toggle_movement()
 		handle_press()
 	elif event.is_action_released("use_item"):
+		Globals.player.toggle_movement()
 		handle_release()
 
 	if event.is_action_pressed("reverse_effect") and hotbar[selected_slot].toggleable:

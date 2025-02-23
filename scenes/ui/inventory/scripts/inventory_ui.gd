@@ -19,6 +19,7 @@ func open_inventory(items: Array[Grimoire], unlocked: bool) -> void:
 		Globals.player.toggle_movement()
 	else:
 		self.visible = false
+		Globals.player.toggle_movement()
 		is_open = false
 
 func populate_items():

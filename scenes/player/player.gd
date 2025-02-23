@@ -14,6 +14,7 @@ var BASE_GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
 # Friction variables
 var current_friction: float = default_friction  # Current friction value
 var is_on_special_surface: bool = false  # Track if the player is on a special surface
+var wind_force: Vector2 = Vector2.ZERO
 
 const AREA_OFFSET_X := 10.0
 
@@ -37,6 +38,7 @@ var tilemap: TileMapLayer
 
 func _ready() -> void:
 	if Globals.player != null:
+		get_parent().add_child(Globals.player)
 		queue_free()  # Delete this duplicate instance if another already exists
 		return
 	checkpoint_position = global_position
@@ -48,14 +50,15 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor():
 		current_friction = get_tile_friction()
-
+	apply_wind(delta)
 	move_and_slide()
 
 func handle_normal_movement(delta: float):
 	# Apply gravity (either custom or default)
 	if not is_on_floor():
 		velocity.y += gravity * delta
-
+	if not movement_enabled:
+		return
 	# Jump handling (only if on the floor)
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -83,7 +86,6 @@ func handle_normal_movement(delta: float):
 	if velocity.y != 0 and not is_on_floor():
 		new_animation = "jump"
 	if Input.is_action_pressed("use_item") and $Hotbar.hotbar[$Hotbar.selected_slot]:
-		toggle_movement()
 		new_animation = "cast_1"
 
 	if animated_sprite.animation != new_animation:
@@ -114,7 +116,9 @@ func reset_to_checkpoint():
 	velocity = Vector2.ZERO
 
 func toggle_movement():
-	movement_enabled = not movement_enabled
+	movement_enabled = !movement_enabled
 	if not movement_enabled:
 		velocity.x = 0
-		velocity.y = 0
+
+func apply_wind(delta):
+	velocity += wind_force * delta

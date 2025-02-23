@@ -31,4 +31,4 @@ func get_tile_friction() -> float:
 	return default_friction
 
 func reset_to_checkpoint():
-	global_position = original_pos
+	set_deferred("global_position", Vector2(0, 0))

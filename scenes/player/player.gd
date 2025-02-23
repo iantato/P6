@@ -68,7 +68,10 @@ func handle_normal_movement(delta: float):
         animated_sprite.play(new_animation)
         if new_animation == "cast_1":
             await animated_sprite.animation_finished
-            animated_sprite.play("cast_loop")
+            if Input.is_action_pressed("use_item"):
+                animated_sprite.play("cast_loop")
+            else:
+                animated_sprite.play("idle")
     if not is_on_floor():
         velocity.y += gravity * delta
     if not movement_enabled:

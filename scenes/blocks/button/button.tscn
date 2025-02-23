@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://clpvhlmgxhpo0"]
+[gd_scene load_steps=11 format=3 uid="uid://clpvhlmgxhpo0"]
 
 [ext_resource type="Script" path="res://scenes/blocks/button/button.gd" id="1_5x827"]
 [ext_resource type="Texture2D" uid="uid://clagocj6solbd" path="res://assets/tiles/Button Animation.png" id="1_okab5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilca5"]
 size = Vector2(16, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7ink"]
+atlas = ExtResource("1_okab5")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fmedv"]
 atlas = ExtResource("1_okab5")
@@ -24,6 +28,14 @@ region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d51eu"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7ink")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fmedv")
@@ -63,7 +75,7 @@ shape = SubResource("RectangleShape2D_ilca5")
 [node name="ButtonSprite" type="AnimatedSprite2D" parent="ButtonBody"]
 position = Vector2(1, -8)
 sprite_frames = SubResource("SpriteFrames_d51eu")
-animation = &"press_up"
+animation = &"idle"
 
 [node name="ButtonArea" type="Area2D" parent="."]
 

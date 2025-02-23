@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmns4"]
 size = Vector2(16, 14)
 
-[node name="RigidBody2D" type="RigidBody2D" groups=["punchable"]]
+[node name="RigidBody2D" type="RigidBody2D" groups=["punchable", "respawnable"]]
 can_sleep = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

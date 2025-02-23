@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://i3ovkxw477tb"]
+
+[ext_resource type="Script" path="res://scenes/blocks/laser/laser.gd" id="1_kesq6"]
+[ext_resource type="Script" path="res://scenes/blocks/laser/kill_zone.gd" id="2_20wnj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ioc5g"]
+size = Vector2(3, 20)
+
+[node name="Laser" type="Node2D"]
+script = ExtResource("1_kesq6")
+
+[node name="KillZone" type="Area2D" parent="."]
+script = ExtResource("2_20wnj")
+
+[node name="Shape" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("RectangleShape2D_ioc5g")

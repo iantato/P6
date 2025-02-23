@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
 grimoire=""
 punchable=""
+respawnable=""
 
 [input]
 

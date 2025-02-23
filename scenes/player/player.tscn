@@ -194,7 +194,7 @@ height = 22.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yy3qs"]
 size = Vector2(8.5, 18.5)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" groups=["player", "respawnable"]]
 script = ExtResource("1_ttu8u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

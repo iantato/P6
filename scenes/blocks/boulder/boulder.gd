@@ -27,3 +27,6 @@ func get_tile_friction() -> float:
 		return friction if friction else default_friction
 
 	return default_friction
+
+func reset_to_checkpoint():
+	global_position = Globals.player.checkpoint_position

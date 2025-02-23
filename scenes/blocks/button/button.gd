@@ -3,8 +3,12 @@ extends Node2D
 signal button_activated
 signal button_deactivated
 
+func _ready():
+	$ButtonBody/ButtonSprite.play("idle")
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body:
+	if body and body.name != $ButtonBody.name and body is not TileMapLayer:
+		print(body)
 		$ButtonBody/ButtonSprite.play("press_down")
 		emit_signal("button_activated")
 

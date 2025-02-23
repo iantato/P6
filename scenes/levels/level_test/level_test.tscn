@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://deq37dhs7gh07"]
+[gd_scene load_steps=11 format=4 uid="uid://deq37dhs7gh07"]
 
 [ext_resource type="PackedScene" uid="uid://bjjyur6dl1yut" path="res://scenes/player/player.tscn" id="1_q8aix"]
+[ext_resource type="TileSet" uid="uid://bdpryc5o60vg3" path="res://data/tileset/ground.tres" id="1_wnxxo"]
 [ext_resource type="TileSet" uid="uid://c14mlaup73w4p" path="res://data/tileset/friction.tres" id="2_dypu6"]
 [ext_resource type="PackedScene" uid="uid://570o7ljhdp2x" path="res://scenes/blocks/boulder/boulder.tscn" id="3_dal4k"]
 [ext_resource type="PackedScene" uid="uid://bpfed70ay6qvw" path="res://scenes/ui/hotbar/scenes/toolbelt.tscn" id="4_amjxr"]
@@ -8,8 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://dn6ydr6vmxshc" path="res://scenes/transition/next_level/next_level.tscn" id="6_wtftn"]
 [ext_resource type="PackedScene" uid="uid://jj2i2n6roque" path="res://scenes/blocks/moving_platform/moving_platform.tscn" id="7_lqlfg"]
 [ext_resource type="PackedScene" uid="uid://clpvhlmgxhpo0" path="res://scenes/blocks/button/button.tscn" id="8_nnum4"]
+[ext_resource type="PackedScene" uid="uid://i3ovkxw477tb" path="res://scenes/blocks/laser/laser.tscn" id="10_1mb2m"]
 
 [node name="LevelTest" type="Node2D"]
+
+[node name="Ground" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD9/wAAAQACAAMAAAD+/wAAAQACAAMAAAD//wAAAQACAAMAAAAAAAAAAQACAAMAAAABAAAAAQACAAMAAAACAAAAAQACAAMAAAADAAAAAQACAAMAAAAEAAAAAQACAAMAAAAFAAAAAQACAAMAAAAGAAAAAQACAAMAAAAHAAAAAQACAAMAAAAIAAAAAQACAAMAAAD8/wAAAQACAAMAAAD7/wAAAQACAAMAAAD6/wAAAQACAAMAAAA=")
+tile_set = ExtResource("1_wnxxo")
+
+[node name="Laser" parent="Ground" instance=ExtResource("10_1mb2m")]
+position = Vector2(123, -106)
+interval = 5.0
+
+[node name="Laser2" parent="Ground" instance=ExtResource("10_1mb2m")]
+position = Vector2(10, -114)
+interval = 5.0
 
 [node name="Player" parent="." instance=ExtResource("1_q8aix")]
 
@@ -40,3 +54,6 @@ x_offset = 10
 
 [node name="Button" parent="." instance=ExtResource("8_nnum4")]
 position = Vector2(35, 0)
+
+[node name="Laser" type="TileMapLayer" parent="."]
+tile_set = ExtResource("1_wnxxo")

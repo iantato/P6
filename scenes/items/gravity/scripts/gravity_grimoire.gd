@@ -25,7 +25,7 @@ func use(player: Player, delta: float):
 func clear(player: Player):
 	player.gravity = player.BASE_GRAVITY
  
-func switch_direction():
+func toggle():
 	direction *= -1
 	
 func timer_finished(player):

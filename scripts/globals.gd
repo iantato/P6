@@ -2,6 +2,7 @@
 extends Node
 
 signal inventory_item_selected(grimoire: Grimoire, slot: int)
+signal hotbar_item_slot_replaced(grimoire: Grimoire, slot: int)
 signal hotbar_item_replaced(grimoire: Grimoire)
 signal hotbar_selected_slot_changed(slot: int)
 # Player instance
@@ -26,6 +27,9 @@ func relay_hotbar_item_replaced(grimoire: Grimoire):
 
 func relay_changed_selected_slot(slot: int):
 	emit_signal("hotbar_selected_slot_changed", slot)
+
+func relay_item_slot_replaced(grimoire: Grimoire, slot: int):
+	emit_signal("hotbar_item_slot_replaced", grimoire, slot)
 
 # Initialize the database (call this once, e.g., in _ready)
 func initializde_database():

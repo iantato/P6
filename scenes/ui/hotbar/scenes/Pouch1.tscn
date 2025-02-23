@@ -14,6 +14,7 @@ offset_bottom = -148.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_obol0")
+pouch_no = 1
 
 [node name="Pouch1" type="Sprite2D" parent="."]
 position = Vector2(8, 17)

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cfcficuwhjvfa" path="res://scenes/items/speed/speed_inventory.tscn" id="4_gkjg6"]
 [ext_resource type="PackedScene" uid="uid://dfb7axsbwxarj" path="res://scenes/items/gravity/scenes/gravity_inventory.tscn" id="5_qx6wk"]
 [ext_resource type="Texture2D" uid="uid://bh17lx6kjnhmw" path="res://scenes/ui/inventory/textures/Book (Green Selected).png" id="6_pv5jq"]
-[ext_resource type="PackedScene" uid="uid://dlyj38hc5cgbq" path="res://scenes/items/intertia/inertia_inventory.tscn" id="7_vtl15"]
+[ext_resource type="PackedScene" uid="uid://dlyj38hc5cgbq" path="res://scenes/items/intertia/scenes/inertia_inventory.tscn" id="7_25r8t"]
 [ext_resource type="PackedScene" uid="uid://bk0f2cmu7urkg" path="res://scenes/items/projectile/scenes/projectile_inventory.tscn" id="8_6bph1"]
 [ext_resource type="PackedScene" uid="uid://bfcq6hjjqllq5" path="res://scenes/ui/inventory/scenes/selector.tscn" id="9_uycdx"]
 
@@ -245,23 +245,21 @@ offset_bottom = 61.0
 theme_type_variation = &"FlatButton"
 
 [node name="GreenSelected" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(160, 90)
 sprite_frames = SubResource("SpriteFrames_geu2j")
 frame_progress = 0.495594
+
+[node name="Inertia" parent="GreenSelected" instance=ExtResource("7_25r8t")]
+offset_left = -85.0
+offset_top = -9.0
+offset_right = -22.0
+offset_bottom = 22.0
 
 [node name="Projectile" parent="GreenSelected" instance=ExtResource("8_6bph1")]
 offset_left = -85.0
 offset_top = -47.0
 offset_right = -22.0
 offset_bottom = -16.0
-theme_type_variation = &"FlatButton"
-
-[node name="Speed" parent="GreenSelected" instance=ExtResource("7_vtl15")]
-offset_left = -85.0
-offset_top = -9.0
-offset_right = -22.0
-offset_bottom = 22.0
 theme_type_variation = &"FlatButton"
 
 [node name="Selector" parent="." instance=ExtResource("9_uycdx")]

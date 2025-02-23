@@ -1,8 +1,103 @@
-[gd_scene load_steps=2 format=3 uid="uid://fan7lv05wat"]
+[gd_scene load_steps=16 format=3 uid="uid://fan7lv05wat"]
+
+[ext_resource type="Script" path="res://scenes/items/base_items/grimoire_scene.gd" id="1_00f4s"]
+[ext_resource type="Texture2D" uid="uid://b7mu1a8t1vsk2" path="res://scenes/items/friction/texture/Book Close - Friction.png" id="1_bfwc7"]
+[ext_resource type="Texture2D" uid="uid://4r6p2e1mrpnt" path="res://scenes/items/friction/texture/Book Idle - Friction.png" id="2_gf0ff"]
+[ext_resource type="Texture2D" uid="uid://b3u647m34bmb7" path="res://scenes/items/friction/texture/Book Open - Friction.png" id="3_hcvla"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh4kh"]
+atlas = ExtResource("1_bfwc7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scafm"]
+atlas = ExtResource("1_bfwc7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7h5m"]
+atlas = ExtResource("1_bfwc7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf3t8"]
+atlas = ExtResource("1_bfwc7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb7gd"]
+atlas = ExtResource("2_gf0ff")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2b4r"]
+atlas = ExtResource("2_gf0ff")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsknx"]
+atlas = ExtResource("3_hcvla")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkbt3"]
+atlas = ExtResource("3_hcvla")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qht5j"]
+atlas = ExtResource("3_hcvla")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bsgf"]
+atlas = ExtResource("3_hcvla")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0tn4e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh4kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scafm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7h5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf3t8")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb7gd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2b4r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsknx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkbt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qht5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bsgf")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
 
-[node name="FrictionGrimoire" type="Node2D"]
+[node name="FrictionGrimoire" type="Node2D" groups=["grimoire"]]
+script = ExtResource("1_00f4s")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Grimoire" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, -14)
+rotation = 0.523599
 sprite_frames = SubResource("SpriteFrames_0tn4e")
+animation = &"idle"

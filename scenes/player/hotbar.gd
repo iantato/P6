@@ -13,6 +13,7 @@ var hotbar_keys = {
 
 signal item_replaced(grimoire: Grimoire)
 signal change_selected_slot(slot: int)
+signal item_slot_replaced(grimoire: Grimoire, slot: int)
 
 var use_time
 var item_scene
@@ -22,6 +23,7 @@ func _ready() -> void:
 	Globals.inventory_item_selected.connect(equip_item)
 	item_replaced.connect(Globals.relay_hotbar_item_replaced)
 	change_selected_slot.connect(Globals.relay_changed_selected_slot)
+	item_slot_replaced.connect(Globals.relay_item_slot_replaced)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("use_item"):
@@ -30,21 +32,29 @@ func _input(event: InputEvent) -> void:
 		handle_release()
 
 	if event.is_action_pressed("reverse_effect") and hotbar[selected_slot].toggleable:
-		hotbar[selected_slot].switch_direction()
+		hotbar[selected_slot].toggle()
 
 	for key in hotbar_keys.keys():
 		if event.is_action_released(key):
-			var new_slot = hotbar_keys[key]
-			if selected_slot != new_slot and hotbar[new_slot] != null:
-				hotbar[selected_slot].clear(Globals.player)
-				if hotbar[new_slot] != null and hotbar[new_slot].activate_on_equip:
-					hotbar[new_slot].activate(Globals.player)
-				if item_scene != null:
-					Globals.player.remove_child(item_scene)
-				select_slot(new_slot)
-				item_scene = hotbar[selected_slot].scene.instantiate()
-				Globals.player.add_child(item_scene)
-				item_scene.play_sequence()
+			print(hotbar)
+			validate_slot(hotbar_keys[key])
+
+func validate_slot(new_slot):
+	if selected_slot != new_slot and hotbar[new_slot] != null:
+		hotbar[selected_slot].clear(Globals.player)
+		
+	if hotbar[new_slot] != null and hotbar[new_slot].activate_on_equip:
+		hotbar[new_slot].activate(Globals.player)
+
+	if item_scene != null:
+		Globals.player.remove_child(item_scene)
+		
+	select_slot(new_slot)
+	
+	if hotbar[selected_slot].scene != null:
+		item_scene = hotbar[selected_slot].scene.instantiate()
+		Globals.player.add_child(item_scene)
+		item_scene.play_sequence()
 
 func _process(delta: float) -> void:
 	if is_holding:
@@ -73,10 +83,18 @@ func equip_item(item: Grimoire, slot: int):
 		push_error("Invalid slot")
 		return
 	if hotbar[slot] != null and hotbar.has(item) and hotbar[slot] != item:
+		emit_signal("item_slot_replaced", hotbar[slot], hotbar.find(item))
 		var temp_grimoire = hotbar[slot]
 		hotbar[hotbar.find(item)] = temp_grimoire
 	elif hotbar[slot] != null:
+		print(2)
 		emit_signal("item_replaced", hotbar[slot])
+	elif hotbar[slot] == null and hotbar.has(item):
+		emit_signal("item_slot_replaced", null, hotbar.find(item))
+		hotbar[hotbar.find(item)] = null
+	
+	if hotbar[selected_slot] == null:
+		select_slot(slot)
 	hotbar[slot] = item
 
 func select_slot(slot: int):

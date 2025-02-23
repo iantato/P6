@@ -126,6 +126,8 @@ centered = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
+[node name="NextLevelTransition" parent="GUI" instance=ExtResource("12_xcofj")]
+
 [node name="Hotbar" parent="GUI" instance=ExtResource("3_qi5pa")]
 visible = false
 offset_left = -71.0
@@ -134,8 +136,6 @@ offset_right = -7.0
 [node name="InventoryUI" parent="GUI" instance=ExtResource("9_gngkw")]
 visible = false
 z_index = 10
-
-[node name="NextLevelTransition" parent="GUI" instance=ExtResource("12_xcofj")]
 
 [node name="Leaves" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_j8hjn")

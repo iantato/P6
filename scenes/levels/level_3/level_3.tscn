@@ -83,7 +83,7 @@ energy = 0.46
 texture = SubResource("GradientTexture2D_uiams")
 
 [node name="Boulder" parent="." instance=ExtResource("6_pxy8l")]
-position = Vector2(55, -56)
+position = Vector2(281, 94)
 
 [node name="Player" parent="." instance=ExtResource("1_8b6p1")]
 position = Vector2(53, 160)
@@ -124,19 +124,19 @@ position = Vector2(946.046, 160.731)
 texture = SubResource("GradientTexture2D_waxgt")
 
 [node name="Laser7" parent="Ground" instance=ExtResource("19_rlwff")]
-position = Vector2(1948.07, 243.446)
+position = Vector2(696.017, 60.8021)
 off_time = 2.0
 on_time = 5.0
 color = 1
 
 [node name="Laser6" parent="Ground" instance=ExtResource("19_rlwff")]
-position = Vector2(901.017, 59.7438)
+position = Vector2(583.017, 59.8342)
 off_time = 2.0
 on_time = 5.0
 color = 1
 
 [node name="Laser5" parent="Ground" instance=ExtResource("19_rlwff")]
-position = Vector2(919.011, 39.7387)
+position = Vector2(647.017, 60.816)
 off_time = 2.0
 on_time = 5.0
 color = 1
@@ -313,7 +313,6 @@ energy = 0.8
 texture = SubResource("GradientTexture2D_h7tjg")
 
 [node name="Clutter" type="TileMapLayer" parent="."]
-visible = false
 tile_map_data = PackedByteArray("AAA8AAgABgABAAAAAAA8AAkABgABAAEAAAA8AAoABgABAAIAAAAmAAkABgAAAAEAAAAmAAoABgABAAIAAAAbAPv/BgABAAAAAAAbAPz/BgABAAEAAAAbAP3/BgABAAIAAAAxAP3/BgABAAIAAAAxAPz/BgAAAAEAAAASAAgABgABAAAAAAASAAkABgABAAEAAAASAAoABgABAAIAAAASAPv/BgABAAAAAAASAPz/BgABAAEAAAASAP3/BgABAAIAAAA8APv/BgABAAAAAAA8APz/BgABAAEAAAA8AP3/BgABAAIAAAAwAAgABgABAAAAAAAwAAkABgABAAEAAAAwAAoABgABAAIAAAAcAAkABgAAAAEAAAAeAAQABQAAAAMAAAAhAAQABQABAAMAAAAkAAQABQAAAAMAAAAoAAQABQAAAAMAAAArAAQABQABAAMAAAAuAAQABQAAAAMAAAAeAAMABQAAAAIAAAAhAAMABQABAAEAAAAuAAMABQAAAAIAAAAuAPX/BQAAAAMAAAAdAPT/BQABAAIAAAApAPT/BQAAAAIAAAAeAAkABwABAAAAAAAjAAkABwABAAAAAAAkAAkABwAAAAAAAAApAAkABwABAAAAAAACAAkABwABAAAAAAAHAAkABwABAAAAAAALAAkABwAAAAAAAAAKAAkABwAAAAAAAAATAAkABwAAAAAAAAA9AAkABwAAAAAAAAA+APz/BwAAAAAAAAAuAPz/BwAAAAAAAAAsAPz/BwABAAAAAAArAPz/BwABAAAAAAAmAPz/BwABAAAAAAAkAPz/BwABAAAAAAAhAPz/BwAAAAAAAAAOAPz/BwABAAAAAAALAPz/BwABAAAAAAAIAPz/BwABAAAAAAAEAPz/BwAAAAAAAAABAPz/BwAAAAAAAAAEAPX/BwAAAAEAAAAPAPX/BwAAAAEAAAARAPX/BwAAAAEAAAAUAPX/BwAAAAEAAAAWAPX/BwAAAAEAAAAyAPX/BwAAAAEAAAAzAPX/BwAAAAEAAAA3APX/BwAAAAEAAAA4APX/BwAAAAEAAAA6APX/BwAAAAEAAAA9APX/BwAAAAEAAAA8AAQABwAAAAEAAAA9AAQABwAAAAEAAAARAAQABwAAAAEAAAAQAAQABwAAAAEAAAANAAQABwAAAAEAAAACAAQABwAAAAEAAAAdAPX/BQABAAMAAAAhAPX/BQAAAAMAAAAlAPX/BQABAAMAAAApAPX/BQAAAAMAAAA=")
 tile_set = ExtResource("3_mja58")
 
@@ -380,6 +379,7 @@ tile_set = ExtResource("4_hxu24")
 tile_set = ExtResource("1_nbbyn")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.05)
@@ -396,6 +396,7 @@ color = Color(0.29174, 0.293128, 0.286798, 1)
 blend_mode = 1
 
 [node name="GUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Hotbar" parent="GUI" instance=ExtResource("7_cctug")]
 offset_left = -71.0

@@ -9,7 +9,7 @@ func _ready():
 func _physics_process(delta):
 	current_friction = get_tile_friction()
 
-    # Apply friction to gradually slow down velocity
+	# Apply friction to gradually slow down velocity
 	if linear_velocity.length() > 0.1:
 		var friction_force = -linear_velocity.normalized() * current_friction * delta * 100
 		apply_central_impulse(friction_force)

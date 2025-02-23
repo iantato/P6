@@ -21,7 +21,6 @@ tile_set = ExtResource("2_dypu6")
 [node name="RigidBody2D" parent="." instance=ExtResource("3_dal4k")]
 position = Vector2(-73, -71)
 mass = 2.5
-can_sleep = false
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

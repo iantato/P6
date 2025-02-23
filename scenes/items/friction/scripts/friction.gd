@@ -28,8 +28,8 @@ func use(player: Player, delta: float):
 	if not player:
 		return
 	var projectile = projectile_scene.instantiate() as RigidBody2D
-	projectile.material_type = materials[current_slot]
 	player.get_parent().add_child(projectile)
+	projectile.change_material(materials[current_slot])
  
 	var origin_position = player.global_position
 

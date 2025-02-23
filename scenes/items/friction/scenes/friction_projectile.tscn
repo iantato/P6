@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dklwajh8q6vo1"]
+[gd_scene load_steps=7 format=3 uid="uid://dklwajh8q6vo1"]
 
 [ext_resource type="Script" path="res://scenes/items/friction/scenes/friction_projectile.gd" id="1_0cpww"]
-[ext_resource type="Texture2D" uid="uid://btsft5074o3r" path="res://scenes/items/friction/texture/Closed Book.png" id="1_io8py"]
+[ext_resource type="Texture2D" uid="uid://c8n0fhg26rpxv" path="res://scenes/items/friction/texture/Honey Projectile.png" id="2_6crii"]
+[ext_resource type="Texture2D" uid="uid://c5a8bmypkn2wj" path="res://scenes/items/friction/texture/Tar Projectile.png" id="3_664v3"]
+[ext_resource type="Texture2D" uid="uid://bs6o81wawkrgv" path="res://scenes/items/friction/texture/Oil Projectile.png" id="4_ehq4s"]
+[ext_resource type="Texture2D" uid="uid://b3h4y7tuc1jr3" path="res://scenes/items/friction/texture/Ice Projectile.png" id="5_vdgec"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6g0a"]
 radius = 5.0
@@ -14,14 +17,26 @@ script = ExtResource("1_0cpww")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_o6g0a")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_io8py")
+[node name="Honey" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_6crii")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 23.449
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_o6g0a")
+
+[node name="Tar" type="Sprite2D" parent="."]
+texture = ExtResource("3_664v3")
+
+[node name="Oil" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_ehq4s")
+
+[node name="Ice" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_vdgec")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

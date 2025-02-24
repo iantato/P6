@@ -38,6 +38,7 @@ offset_left = 60.0
 offset_top = 65.0
 offset_right = 110.0
 offset_bottom = 120.0
+theme_type_variation = &"FlatButton"
 
 [node name="Slot2" type="Button" parent="."]
 layout_mode = 0
@@ -45,6 +46,7 @@ offset_left = 140.0
 offset_top = 65.0
 offset_right = 190.0
 offset_bottom = 120.0
+theme_type_variation = &"FlatButton"
 
 [node name="Slot3" type="Button" parent="."]
 layout_mode = 0
@@ -52,6 +54,7 @@ offset_left = 215.0
 offset_top = 65.0
 offset_right = 265.0
 offset_bottom = 120.0
+theme_type_variation = &"FlatButton"
 
 [connection signal="pressed" from="Slot1" to="." method="_on_slot_1_pressed"]
 [connection signal="pressed" from="Slot2" to="." method="_on_slot_2_pressed"]

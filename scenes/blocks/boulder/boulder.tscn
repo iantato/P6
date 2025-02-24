@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xmns4"]
 size = Vector2(16, 14)
 
-[node name="RigidBody2D" type="RigidBody2D" groups=["punchable", "respawnable"]]
+[node name="RigidBody2D" type="RigidBody2D" groups=["boulder", "button", "punchable", "respawnable"]]
 can_sleep = false
 script = ExtResource("1_4bm2s")
 

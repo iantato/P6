@@ -52,7 +52,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and is_open:
 		open_inventory(Globals.player.inventory.items, true)
 	if Input.is_action_just_pressed("inventory"):
-		open_inventory(Globals.player.inventory.items, true)
+		open_inventory(Globals.player.inventory.items, false)
 		
 	if Input.is_action_just_pressed("interact") and Globals.player.inside:
 		open_inventory(Globals.player.inventory.items, true)

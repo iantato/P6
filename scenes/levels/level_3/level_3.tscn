@@ -451,7 +451,7 @@ scale_amount_max = 3.0
 [node name="WindZone" type="Area2D" parent="."]
 visible = false
 script = ExtResource("16_r3ekx")
-change_every = 3.0
+change_every = 10.0
 min_strength = 200.0
 max_strength = 800.0
 

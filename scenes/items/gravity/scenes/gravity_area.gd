@@ -19,6 +19,7 @@ func _on_timer_timeout() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("punchable"):
+		print(body)
 		bodies[body] = {"gravity": body.gravity_scale, "linear": body.linear_damp, "angular": angular_damp}
 		body.gravity_scale = -0.02
 		body.linear_damp = 0.02

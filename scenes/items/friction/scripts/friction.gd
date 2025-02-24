@@ -47,7 +47,7 @@ func clear(player: Player):
 		player.get_parent().remove_child(arrow)
 
 func toggle():
-	if current_slot < max_slot:
+	if current_slot < max_slot - 1:
 		current_slot += 1
 	else:
 		current_slot = 0

@@ -10,7 +10,7 @@ var player: Node = null
 var player_id: int = 0
 var current_level: int = -1
 
-var timers = {1: 0, 2: 0, 3: 0}
+var timers = {-1: 0, 0: 0, 1: 0, 2: 0, 3: 0}
 var bridge_tiles: Array = []
 
 func relay_item_selected(grimoire: Grimoire, slot: int):

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b3h4y7tuc1jr3" path="res://scenes/items/friction/texture/Ice Projectile.png" id="5_vdgec"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6g0a"]
-radius = 5.0
+radius = 6.0
 
 [node name="Projectile" type="RigidBody2D"]
 script = ExtResource("1_0cpww")

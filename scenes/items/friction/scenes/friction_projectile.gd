@@ -37,6 +37,7 @@ func _on_timer_timeout() -> void:
 	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(body)
 	if body is TileMapLayer and body.name == "Friction":
 		tilemap = body
 		material_info = MaterialAtlas.get(material_type)
@@ -58,7 +59,6 @@ func change_cell(pos: Vector2i, x: int):
 	# Get the current tile's source ID
 	var current_source_id = tilemap.get_cell_source_id(pos)
 	var current_atlas_coords = tilemap.get_cell_atlas_coords(pos)
-
 
 	# Check if the tile is different from the target material before changing
 	var target_source_id = material_info.get("source_id")

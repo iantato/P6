@@ -56,9 +56,9 @@ func handle_normal_movement(delta: float):
 	var new_animation = "idle"
 	if velocity.x != 0:
 		new_animation = "run"
-	elif velocity.y != 0 and not is_on_floor():
+	if velocity.y != 0 and not is_on_floor():
 		new_animation = "jump"
-	elif Input.is_action_pressed("use_item") and $Hotbar.hotbar[$Hotbar.selected_slot]:
+	if Input.is_action_pressed("use_item") and $Hotbar.hotbar[$Hotbar.selected_slot]:
 		new_animation = "cast_loop"
 
 	if animated_sprite.animation != new_animation:

@@ -1,10 +1,11 @@
 extends Label
 
-var elapsed_time: float = 0.0
+var elapsed_time: float = Globals.timers[Globals.current_level]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	elapsed_time += delta
+	Globals.timers[Globals.current_level] = elapsed_time
 	update_display()
 
 func update_display():

@@ -8,11 +8,10 @@ signal hotbar_selected_slot_changed(slot: int)
 # Player instance
 var player: Node = null
 var player_id: int = 0
-var current_level: int = -1
+var current_level: int = 1
 
-# Time tracking variables
-var level_times: Dictionary = {}  # Stores time spent in each level
-var current_level_start_time: int = 0  # Tracks the start time of the current level
+var timers = {1: 0, 2: 0, 3: 0}
+var bridge_tiles: Array = []
 
 func relay_item_selected(grimoire: Grimoire, slot: int):
 	emit_signal("inventory_item_selected", grimoire, slot)

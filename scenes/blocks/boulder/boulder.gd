@@ -4,6 +4,7 @@ var current_friction = default_friction
 var tilemap: TileMapLayer
 var original_pos: Vector2
 
+
 func _ready():
 	tilemap = get_parent().get_node("Friction")
 	original_pos = global_position
@@ -31,4 +32,10 @@ func get_tile_friction() -> float:
 	return default_friction
 
 func reset_to_checkpoint():
+	set_physics_process(false)
+	await get_tree().create_timer(2).timeout
 	set_deferred("global_position", original_pos)
+	global_position = original_pos
+	self.linear_velocity = Vector2.ZERO
+	self.angular_velocity = 0
+	set_physics_process(true)

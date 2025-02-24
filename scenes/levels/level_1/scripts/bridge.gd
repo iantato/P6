@@ -24,6 +24,9 @@ func _explode_bridge(body: Node2D) -> void:
 	while (cell_id == 3):
 		tilemap.set_cell(tile_pos, cell_id)
 		
+		if {"cell_id": 3, "tile_pos": tile_pos} not in Globals.bridge_tiles:
+			Globals.bridge_tiles.append({"cell_id": 3, "tile_pos": tile_pos})
+		
 		if particle:
 			particle.global_position = world_pos
 			particle.emitting = true

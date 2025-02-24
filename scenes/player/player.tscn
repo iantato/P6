@@ -243,7 +243,7 @@ script = ExtResource("1_ttu8u")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -24)
 sprite_frames = SubResource("SpriteFrames_svuhi")
-animation = &"cast_1"
+animation = &"jump"
 autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
